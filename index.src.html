@@ -203,6 +203,8 @@ details.faq p{margin:8px 0 0;color:var(--muted)}
 .check li{padding:6px 0 6px 30px;position:relative;border-bottom:1px dashed var(--line)}
 .check li:last-child{border-bottom:0}
 .check li::before{content:"☐";position:absolute;left:4px;top:5px;color:var(--brand)}
+.check li.done::before{content:"☑";color:var(--green)}
+.check li.done{color:var(--muted)}
 /* contactos */
 .ct-tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
 .ct-tools input{flex:1 1 260px;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}
@@ -618,6 +620,17 @@ details.faq p{margin:8px 0 0;color:var(--muted)}
       <div class="card"><h3>2. La IA cambió las reglas</h3><p>Hoy se pregunta al mapa en lenguaje natural. Quien sepa unir IA, datos y territorio tendrá una ventaja real.</p></div>
       <div class="card"><h3>3. La oportunidad está cerca</h3><p>Con el convenio, el semillero y aliados regionales, Cúcuta puede formar el talento SIG que el país está pidiendo.</p></div>
     </div>
+
+    <div class="card topic" style="margin-top:16px;border:2px solid var(--green)">
+      <a href="https://arcg.is/0urSub1" target="_blank" rel="noopener"><img src="img/mapa-houston.jpg" alt="Mapa web: secciones censales de Houston con bajo acceso a vehículos" style="cursor:pointer"></a>
+      <div>
+        <span class="badge green">Primer resultado después de la CUE</span>
+        <h3 style="margin-top:8px">Mi primer mapa web en ArcGIS Online</h3>
+        <p>Al regresar completé la lección <b>"Primeros pasos con ArcGIS Online"</b> de Learn ArcGIS y publiqué el mapa <b>"Secciones censales de Houston con bajo acceso a vehículos"</b>: identifica los sectores con muchos hogares sin vehículo, que necesitarían apoyo para evacuar ante un huracán u otro desastre.</p>
+        <p>El mismo análisis se puede llevar a Cúcuta: cruzar datos del DANE para ubicar barrios con baja movilidad o, en la línea de los proyectos del semillero, saber cuántos de nuestros estudiantes dependen del transporte público.</p>
+        <p><a href="https://arcg.is/0urSub1" target="_blank" rel="noopener"><b>Ver mi mapa en ArcGIS Online →</b></a></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -872,7 +885,7 @@ details.faq p{margin:8px 0 0;color:var(--muted)}
       <div class="card">
         <ol class="path">
           <li><b>Nivel 1 · Fundamentos (2–4 semanas)</b><span class="small muted">Conceptos SIG, sistemas de coordenadas, primeros mapas en ArcGIS Online. Lecciones guiadas de Learn ArcGIS.</span>
-            <span class="lk"><a href="https://learn.arcgis.com/es/projects/get-started-with-arcgis-online/" target="_blank" rel="noopener">Primeros pasos con ArcGIS Online</a><a href="https://doc.arcgis.com/es/arcgis-online/get-started/get-started.htm" target="_blank" rel="noopener">Guía de inicio de ArcGIS Online</a><a href="https://epsg.io/9377" target="_blank" rel="noopener">Sistema de coordenadas de Colombia (EPSG:9377)</a></span></li>
+            <span class="lk"><a href="https://learn.arcgis.com/es/projects/get-started-with-arcgis-online/" target="_blank" rel="noopener" style="background:var(--green-soft);color:var(--green)">✔ Primeros pasos con ArcGIS Online (completado)</a><a href="https://arcg.is/0urSub1" target="_blank" rel="noopener" style="background:var(--green-soft);color:var(--green)">Ver mi mapa resultado</a><a href="https://doc.arcgis.com/es/arcgis-online/get-started/get-started.htm" target="_blank" rel="noopener">Guía de inicio de ArcGIS Online</a><a href="https://epsg.io/9377" target="_blank" rel="noopener">Sistema de coordenadas de Colombia (EPSG:9377)</a></span></li>
           <li><b>Nivel 2 · ArcGIS Pro y análisis (1–2 meses)</b><span class="small muted">Edición de datos, geodatabase, análisis de proximidad y superposición con datos del DANE e IGAC de Norte de Santander.</span>
             <span class="lk"><a href="https://learn.arcgis.com/es/projects/get-started-with-arcgis-pro/" target="_blank" rel="noopener">Primeros pasos con ArcGIS Pro</a><a href="https://pro.arcgis.com/es/pro-app/latest/get-started/get-started.htm" target="_blank" rel="noopener">Introducción a ArcGIS Pro</a><a href="https://geoportal.dane.gov.co/" target="_blank" rel="noopener">Datos: Geoportal DANE</a><a href="https://www.colombiaenmapas.gov.co/" target="_blank" rel="noopener">Datos: Colombia en Mapas (IGAC)</a></span></li>
           <li><b>Nivel 3 · Desarrollo y automatización (2–3 meses)</b><span class="small muted">Python con ArcPy y ArcGIS API for Python; una aplicación web con Experience Builder o el Maps SDK for JavaScript.</span>
@@ -907,7 +920,7 @@ details.faq p{margin:8px 0 0;color:var(--muted)}
     <div class="card">
       <ul class="check">
         <li>Activar la licencia académica de ArcGIS a través de la universidad.</li>
-        <li>Completar las primeras lecciones de Learn ArcGIS en español.</li>
+        <li class="done">Completar las primeras lecciones de Learn ArcGIS en español. <a href="https://arcg.is/0urSub1" target="_blank" rel="noopener">Ver mi primer mapa</a></li>
         <li>Inscribirme en el próximo MOOC gratuito de Esri.</li>
         <li>Presentar este informe al semillero SIGDTI y proponer un primer proyecto SIG para la universidad.</li>
         <li>Construir mi primera aplicación web con mapas y publicarla en mi portafolio.</li>
@@ -1270,7 +1283,7 @@ details.faq p{margin:8px 0 0;color:var(--muted)}
   const visor = document.getElementById('visor');
   document.addEventListener('click', e => {
     const img = e.target.closest('figure img, .partner .thumb img, .featured > img, .topic img, .gallery img');
-    if(!img) return;
+    if(!img || img.closest('a')) return;
     visor.querySelector('img').src = img.src;
     const cap = img.closest('figure')?.querySelector('figcaption');
     visor.querySelector('p').textContent = cap ? cap.textContent : img.alt;
