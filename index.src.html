@@ -1,0 +1,1283 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CUE Esri 2026</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<meta name="description" content="Informe de participación en la Conferencia de Usuarios Esri Colombia 2026 — Dani Ismael Rodríguez Gómez, Ingeniería en TIC, Universidad Libre Cúcuta.">
+<style>
+:root{
+  --bg:#f4f6f9; --surface:#ffffff; --surface-2:#eef2f7; --text:#18212c; --muted:#5a6676; --line:#dbe2ea;
+  --brand:#0079c1; --brand-ink:#ffffff; --brand-soft:#e2f0f9; --deep:#0b2a4a;
+  --green:#3d8b37; --green-soft:#e8f4e6; --amber:#b45309; --amber-soft:#fdf1e3;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 4px 16px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e141b; --surface:#16202b; --surface-2:#1c2835; --text:#e7edf3; --muted:#9aa8b8; --line:#2a3746;
+    --brand:#3fa7e8; --brand-ink:#0b1622; --brand-soft:#15344d; --deep:#07182a;
+    --green:#7cc674; --green-soft:#1d3320; --amber:#f2a65a; --amber-soft:#3a2914;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e141b; --surface:#16202b; --surface-2:#1c2835; --text:#e7edf3; --muted:#9aa8b8; --line:#2a3746;
+  --brand:#3fa7e8; --brand-ink:#0b1622; --brand-soft:#15344d; --deep:#07182a;
+  --green:#7cc674; --green-soft:#1d3320; --amber:#f2a65a; --amber-soft:#3a2914;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--brand)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+
+/* barra superior */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:12px;min-height:56px;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.01em;margin-right:auto;white-space:nowrap}
+.brand span{color:var(--brand)}
+.tabs{display:flex;gap:4px}
+.tabs button{font:inherit;font-size:.92rem;border:0;background:transparent;color:var(--muted);padding:8px 12px;border-radius:8px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--brand-soft);color:var(--brand);font-weight:600}
+.theme{font:inherit;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:8px;padding:6px 10px;cursor:pointer}
+
+/* portada */
+.hero{position:relative;color:#fff;background:var(--deep);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,24,42,.2),rgba(7,24,42,.92))}
+.hero .wrap{position:relative;z-index:1;padding-top:96px;padding-bottom:48px}
+.kicker{display:inline-block;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.14);padding:4px 10px;border-radius:999px}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:16px 0 8px;max-width:20ch}
+.hero .lema{font-size:clamp(1.05rem,2.2vw,1.35rem);opacity:.9;margin:0 0 24px}
+.autor{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.95rem;opacity:.92}
+.autor b{font-weight:600}
+
+/* secciones */
+section.block{padding:56px 0;border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--brand);font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 6px}
+h2{font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;margin:0 0 12px}
+h3{font-size:1.15rem;margin:0 0 6px}
+.lead{font-size:1.08rem;color:var(--muted);max-width:70ch;margin:0 0 28px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.muted{color:var(--muted)}
+.small{font-size:.88rem}
+
+/* cifras */
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+.stat .n{font-size:2.2rem;font-weight:800;color:var(--brand);line-height:1}
+.stat .l{color:var(--muted);font-size:.92rem;margin-top:6px}
+
+/* figuras */
+figure{margin:0}
+figure.ph{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+figure.ph img{width:100%;aspect-ratio:4/3;object-fit:cover;cursor:zoom-in}
+figure.ph.tall img{aspect-ratio:3/4}
+figure.ph.wide img{aspect-ratio:16/9}
+figcaption{padding:10px 14px;font-size:.88rem;color:var(--muted)}
+
+/* gracias */
+.thanks{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+.quote{font-size:1.15rem;line-height:1.7;border-left:4px solid var(--brand);padding:4px 0 4px 18px;margin:0 0 16px}
+
+/* línea de tiempo */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.timeline li{position:relative;padding:0 0 22px 40px}
+.timeline li::before{content:"";position:absolute;left:4px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--surface);border:3px solid var(--brand)}
+.timeline .t{font-weight:700}
+
+/* temas plenaria */
+.topic{display:grid;grid-template-columns:240px 1fr;gap:18px;align-items:start}
+.topic img{border-radius:10px;width:100%;aspect-ratio:16/9;object-fit:cover;cursor:zoom-in}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:.78rem;padding:3px 10px;border-radius:999px;background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+
+/* ecosistema */
+.eco{display:grid;gap:10px}
+.eco .row{display:grid;grid-template-columns:170px 1fr;gap:12px;align-items:stretch}
+.eco .lab{background:var(--deep);color:#fff;border-radius:10px;padding:12px 14px;font-weight:600;font-size:.92rem;display:flex;align-items:center}
+.eco .row.core .lab{background:var(--brand);color:var(--brand-ink)}
+.eco .row.local .lab{background:var(--green);color:#fff}
+.eco .items{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px}
+.eco .items a{text-decoration:none;color:var(--text);background:var(--surface-2);border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:.9rem}
+.eco .items a:hover{border-color:var(--brand);color:var(--brand)}
+.eco .items span.note{font-size:.88rem;color:var(--muted)}
+
+/* partners */
+.featured{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;background:var(--surface);border:2px solid var(--green);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:24px}
+.featured img{width:100%;height:100%;object-fit:cover;min-height:320px;cursor:zoom-in}
+.featured .body{padding:24px}
+.badge{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.badge.green{background:var(--green-soft);color:var(--green)}
+.badge.blue{background:var(--brand-soft);color:var(--brand)}
+.badge.amber{background:var(--amber-soft);color:var(--amber)}
+.partner{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.partner .thumb{height:170px;background:var(--surface-2);overflow:hidden}
+.partner .thumb img{width:100%;height:100%;object-fit:cover;cursor:zoom-in}
+.partner .body{padding:16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.partner h3{margin:0}
+.partner ul{margin:0;padding-left:18px;font-size:.92rem}
+.partner .tic{background:var(--brand-soft);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.partner .tic b{color:var(--brand)}
+.partner .src{font-size:.8rem;color:var(--muted);margin-top:auto}
+.partner .src a{color:var(--muted)}
+
+/* oportunidades */
+.opp li{margin-bottom:8px}
+.callout{background:var(--green-soft);border:1px solid color-mix(in srgb,var(--green) 40%,transparent);border-radius:14px;padding:20px}
+
+/* galería */
+.gallery{columns:3 240px;column-gap:12px}
+.gallery figure{break-inside:avoid;margin:0 0 12px}
+.gallery img{border-radius:10px;width:100%;cursor:zoom-in}
+
+/* videos */
+.vgroup{margin-top:24px}
+.vgroup h3{margin-bottom:10px}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;align-items:start}
+.vcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.vcard video{display:block;width:100%;aspect-ratio:16/9;background:#000;object-fit:contain}
+.vcard.vert video{aspect-ratio:9/16;max-height:420px}
+.vcard p{margin:0;padding:8px 12px;font-size:.88rem}
+.vcard p span{color:var(--muted)}
+.vaviso{display:none;background:var(--amber-soft);color:var(--amber);border-radius:10px;padding:10px 14px;font-size:.9rem;margin-bottom:12px}
+.vaviso.on{display:block}
+
+/* visor */
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh}
+dialog::backdrop{background:rgba(5,10,16,.86)}
+dialog img{max-width:96vw;max-height:86vh;border-radius:8px;margin:auto}
+dialog p{color:#fff;text-align:center;margin:8px 0 0;font-size:.92rem}
+dialog button{position:fixed;top:12px;right:16px;font:inherit;font-size:1.4rem;background:rgba(255,255,255,.15);color:#fff;border:0;border-radius:8px;padding:2px 12px;cursor:pointer}
+
+/* pestañas pendientes */
+.pending{padding:80px 0;text-align:center}
+.pending .card{max-width:560px;margin:0 auto}
+
+footer{padding:32px 0;color:var(--muted);font-size:.88rem}
+
+/* biblioteca */
+.lib-hero{background:var(--deep);color:#fff;padding:56px 0 40px}
+.lib-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);margin:8px 0}
+.lib-hero p{opacity:.88;max-width:70ch;margin:0}
+.lib-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.lib-nav a{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);padding:6px 12px;border-radius:999px;font-size:.88rem}
+.lib-nav a:hover{background:rgba(255,255,255,.12)}
+.concept h3{display:flex;align-items:center;gap:8px}
+.concept .ico{width:32px;height:32px;border-radius:8px;background:var(--brand-soft);color:var(--brand);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex:none}
+.tool{display:flex;flex-direction:column;gap:6px}
+.tool .what{font-size:.8rem;color:var(--brand);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.tool a.more{font-size:.85rem;margin-top:auto}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:12px}
+.vs > div{padding:14px 16px;background:var(--surface)}
+.vs > div + div{border-left:1px solid var(--line)}
+.vs b{display:block;margin-bottom:4px}
+.glossary-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.glossary-tools input{flex:1 1 260px;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}
+.glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.term dt{font-weight:700}
+.term dd{margin:4px 0 0;color:var(--muted);font-size:.92rem}
+.path{counter-reset:paso;list-style:none;margin:0;padding:0}
+.path li{counter-increment:paso;position:relative;padding:0 0 14px 40px}
+.path li::before{content:counter(paso);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--brand);color:var(--brand-ink);font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.path li b{display:block}
+.path .lk{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.path .lk a{font-size:.8rem;text-decoration:none;background:var(--brand-soft);color:var(--brand);padding:3px 10px;border-radius:999px}
+.path .lk a:hover{text-decoration:underline}
+.res{display:flex;flex-direction:column;gap:4px}
+.res a{font-weight:600}
+details.faq{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-bottom:8px}
+details.faq summary{cursor:pointer;font-weight:600}
+details.faq p{margin:8px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;margin:0}
+.check li{padding:6px 0 6px 30px;position:relative;border-bottom:1px dashed var(--line)}
+.check li:last-child{border-bottom:0}
+.check li::before{content:"☐";position:absolute;left:4px;top:5px;color:var(--brand)}
+/* contactos */
+.ct-tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.ct-tools input{flex:1 1 260px;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}
+.ct-tools button{font:inherit;font-size:.9rem;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--text);padding:8px 12px;border-radius:10px}
+.ct-tools button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.ct-tools button.primary{background:var(--deep);border-color:var(--deep);color:#fff}
+.ct-count{color:var(--muted);font-size:.9rem;margin-bottom:10px}
+.ct-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.ct{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow)}
+.ct .logo{height:44px;display:flex;align-items:center;margin-bottom:4px}
+.ct .logo img{max-height:44px;max-width:170px;object-fit:contain;border-radius:6px}
+.ct .logo.big{height:64px}
+.ct .logo.big img{max-height:64px;max-width:220px}
+.ct .hd{display:flex;align-items:center;gap:10px;min-height:44px;padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+.ct .hd img{max-height:40px;max-width:120px;object-fit:contain;border-radius:6px;flex:none}
+.ct .hd .org{line-height:1.3}
+.ct .who{display:flex;gap:12px;align-items:center}
+.ct .av{width:56px;height:56px;border-radius:50%;flex:none;object-fit:cover;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.05rem;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--line)}
+.ct .org{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--brand);font-weight:700}
+.ct .nm{font-size:1.05rem;font-weight:700;margin:0}
+.ct .rl{color:var(--muted);font-size:.92rem;margin:0}
+.ct dl{margin:4px 0 0;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:.9rem}
+.ct dt{color:var(--muted)}
+.ct dd{margin:0;overflow-wrap:anywhere}
+.ct .nt{background:var(--surface-2);border-radius:8px;padding:8px 10px;font-size:.86rem;color:var(--muted)}
+.ct button{align-self:flex-start;margin-top:auto;font:inherit;font-size:.84rem;cursor:pointer;border:1px solid var(--line);background:var(--brand-soft);color:var(--brand);padding:6px 10px;border-radius:8px}
+@media (max-width:760px){ .vs{grid-template-columns:1fr} .vs > div + div{border-left:0;border-top:1px solid var(--line)} }
+
+@media (max-width:760px){
+  .thanks,.featured,.topic{grid-template-columns:1fr}
+  .eco .row{grid-template-columns:1fr}
+  .featured img{min-height:240px}
+  .hero .wrap{padding-top:72px}
+  .tabs{order:3;width:100%;overflow-x:auto;padding-bottom:8px}
+  .tabs button{padding:8px 10px;white-space:nowrap}
+}
+@media print{
+  .top,dialog{display:none}
+  section.block{break-inside:avoid-page}
+  .hero{color:#000;background:#fff}.hero img,.hero::after{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">CUE <span>Esri</span> 2026</div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-tab="informe">Informe</button>
+      <button role="tab" aria-selected="false" data-tab="biblioteca">Biblioteca de saberes</button>
+      <button role="tab" aria-selected="false" data-tab="contactos">Contactos</button>
+      <button role="tab" aria-selected="false" data-tab="documentacion">Documentación</button>
+    </nav>
+    <button class="theme" id="theme" aria-label="Cambiar tema">◐</button>
+  </div>
+</header>
+
+<!-- ============================ INFORME ============================ -->
+<main id="informe" role="tabpanel">
+
+<div class="hero">
+  <img src="img/hero-delegacion.jpg" alt="Delegación de la Universidad Libre Cúcuta en el Ágora Bogotá">
+  <div class="wrap">
+    <span class="kicker">Conferencia de Usuarios Esri Colombia · 8.ª edición</span>
+    <h1>Lo que aprendí en la CUE Esri Colombia 2026</h1>
+    <p class="lema">"SIG: Creando un mundo más inteligente" — 1 y 2 de octubre de 2026 · Ágora Bogotá</p>
+    <div class="autor">
+      <span><b>Dani Ismael Rodríguez Gómez</b></span>
+      <span>Ingeniería en TIC</span>
+      <span>Universidad Libre — Seccional Cúcuta</span>
+    </div>
+  </div>
+</div>
+
+<!-- Agradecimiento -->
+<section class="block">
+  <div class="wrap thanks">
+    <div>
+      <p class="eyebrow">Gracias</p>
+      <h2>Una oportunidad que la universidad hizo posible</h2>
+      <p class="quote">Gracias a la gestión de la Universidad Libre Seccional Cúcuta pude viajar a Bogotá y vivir, por dos días, el encuentro más importante de sistemas de información geográfica del país. Este informe es mi forma de devolver esa confianza: compartir lo que vi, lo que aprendí y por qué creo que este conocimiento importa para nuestra región.</p>
+      <p>Agradezco al <b>Rector, Dr. Diego Armando Yáñez Meza</b>, que nos acompañó en el evento; al <b>Profesor Ing. Francisco Sierra</b>, por su acompañamiento y su compromiso con la formación en SIG en nuestra seccional; al <b>Prof. Johan Peñaranda</b>, director del semillero de investigación <b>SIGDTI</b>; a los docentes y directivos que hicieron parte de la delegación, y a mis siete compañeros de viaje.</p>
+      <p class="muted small">Esta participación se da en el marco del convenio de cooperación de cinco años firmado entre la Universidad Libre Cúcuta y Esri Colombia en diciembre de 2025, que convirtió a nuestra seccional en la primera de Norte de Santander en incorporar formación en tecnología SIG. <a href="https://www.unilibre.edu.co/noticias/universidad-libre-de-cucuta-se-convierte-en-la-primera-de-norte-de-santander-en-incorporar-formacion-en-tecnologia-sig" target="_blank" rel="noopener">Ver noticia</a></p>
+    </div>
+    <figure class="ph tall">
+      <img src="img/dani-planet.jpg" alt="Dani junto a un satélite SuperDove a escala real en el stand de Planet y Procalculo">
+      <figcaption>Junto a un satélite SuperDove de Planet a escala real, en el stand de Planet y Procalculo.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Cifras -->
+<section class="block">
+  <div class="wrap">
+    <p class="eyebrow">El evento en cifras</p>
+    <h2>Dos días, miles de personas, un mismo lenguaje: el mapa</h2>
+    <p class="lead">La CUE reúne cada año a usuarios, empresas, entidades públicas y academia alrededor de la plataforma ArcGIS. En 2026 los ejes fueron la GeoIA, las imágenes satelitales, los gemelos digitales y la administración de tierras.</p>
+    <div class="grid g4">
+      <div class="stat"><div class="n">+3.000</div><div class="l">asistentes en el Ágora Bogotá</div></div>
+      <div class="stat"><div class="n">8.ª</div><div class="l">edición de la conferencia</div></div>
+      <div class="stat"><div class="n">11</div><div class="l">empresas aliadas documentadas en este informe</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">estudiantes de la Unilibre Cúcuta invitados</div></div>
+    </div>
+    <p class="small muted" style="margin-top:12px">Fuentes: <a href="https://www.tecnogus.com.co/cue-colombia-2026-conferencia-usuarios-esri-bogota/" target="_blank" rel="noopener">Tecnogus</a> · <a href="https://www.technocio.com/de-los-datos-a-las-decisiones-asi-se-esta-transformando-el-uso-de-la-inteligencia-geoespacial-en-colombia/" target="_blank" rel="noopener">Technocio</a>. El evento fue declarado neutro en carbono y las escarapelas se hicieron con material 100 % reciclado.</p>
+  </div>
+</section>
+
+<!-- El viaje -->
+<section class="block">
+  <div class="wrap">
+    <p class="eyebrow">La experiencia</p>
+    <h2>Delegación Universidad Libre Cúcuta</h2>
+    <p class="lead">Ocho estudiantes, docentes y directivos viajamos desde Cúcuta para participar en plenarias, talleres y la feria de empresas aliadas.</p>
+    <div class="grid g3">
+      <figure class="ph"><img src="img/aeropuerto.jpg" alt="Delegación en el aeropuerto"><figcaption>Rumbo a Bogotá, puntuales para el viaje.</figcaption></figure>
+      <figure class="ph"><img src="img/delegacion-auditorio.jpg" alt="Delegación en el auditorio"><figcaption>En el auditorio principal, antes de la plenaria.</figcaption></figure>
+      <figure class="ph"><img src="img/semillero-escenario.jpg" alt="Prof. Peñaranda con estudiantes en el escenario"><figcaption>Con el Prof. Johan Peñaranda (semillero SIGDTI) en el escenario de Esri Colombia.</figcaption></figure>
+    </div>
+    <div class="grid g2" style="margin-top:16px">
+      <figure class="ph wide"><img src="img/hero-delegacion.jpg" alt="Foto grupal oficial de la delegación"><figcaption>Foto oficial de la delegación con el Rector, el Profesor Ing. Francisco Sierra, el Prof. Johan Peñaranda y docentes al cierre del primer día: "Gracias por un gran primer día".</figcaption></figure>
+      <figure class="ph wide"><img src="img/selfie-escenario.jpg" alt="Selfie con el equipo de Esri Colombia"><figcaption>Con el equipo de Esri Colombia en el escenario principal.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Plenaria -->
+<section class="block" id="plenaria">
+  <div class="wrap">
+    <p class="eyebrow">Lo que aprendí</p>
+    <h2>Plenaria: del dato a la decisión</h2>
+    <p class="lead">La idea que atravesó todo el evento: los problemas más complejos del mundo ocurren sobre un territorio, y los SIG con inteligencia artificial permiten pasar del dato a la decisión en minutos.</p>
+
+    <div class="grid" style="gap:20px">
+      <div class="card topic">
+        <img src="img/v-arcgis.jpg" alt="Diapositiva ArcGIS plataforma geoespacial integral">
+        <div>
+          <h3>1. ArcGIS como plataforma integral</h3>
+          <p>ArcGIS no es un solo programa: es un ecosistema que une <b>ArcGIS Pro</b> (escritorio), <b>ArcGIS Online</b> (nube) y <b>ArcGIS Enterprise</b> (servidores propios) para mapear, analizar, trabajar en 3D, procesar imágenes, gestionar datos y compartir.</p>
+          <div class="chips"><span class="chip">Mapeo</span><span class="chip">Analítica</span><span class="chip">3D</span><span class="chip">Imágenes</span><span class="chip">Gestión de datos</span><span class="chip">Colaboración</span></div>
+        </div>
+      </div>
+
+      <div class="card topic">
+        <img src="img/v-emergencias.jpg" alt="Casos de respuesta ante emergencias">
+        <div>
+          <h3>2. Casos reales en Colombia</h3>
+          <p><b>Respuesta ante emergencias:</b> la UNGRD montó una mesa de información geoespacial tras el sismo del 10 de agosto de 2026; la Federación Nacional de Cafeteros midió la afectación a caficultores; Surtigas y Gases de Occidente monitorean zonas de inundación. La Alcaldía de Calarcá georreferenció daños y ayudas.</p>
+          <p><b>Movilidad e infraestructura:</b> Ministerio de Transporte, INVÍAS y UPIT. <b>Territorio:</b> Gobernación del Huila (formalización rural), Metro de Bogotá (biodiversidad), EPM (mantenimiento).</p>
+          <div class="chips"><span class="chip">Gestión del riesgo</span><span class="chip">Sector público</span><span class="chip">Servicios públicos</span></div>
+        </div>
+      </div>
+
+      <div class="card topic">
+        <img src="img/v-chivite-demo.jpg" alt="Demo de IA en ArcGIS con resultados Saber 11">
+        <div>
+          <h3>3. Inteligencia artificial geoespacial (GeoIA)</h3>
+          <p><b>Ismael Chivite</b> (Geospatial AI Product Manager, Esri Inc.) hizo una demostración en vivo: con un asistente de IA en ArcGIS analizó los <b>resultados Saber 11 de Bogotá 2024–2025</b> escribiendo instrucciones en lenguaje natural, sin programar.</p>
+          <p><b>Manuel Francisco Lemos</b>, Gerente General de Esri Colombia y Ecuador, planteó "¿Qué es la inteligencia?": razonar, resolver problemas y adaptarse. <b>Santiago Covelli</b>, cofundador de Lulo Bank, habló de cómo aprendemos y de que "la ventaja competitiva cambió de forma, y de lugar".</p>
+          <div class="chips"><span class="chip">Agentes de IA</span><span class="chip">Lenguaje natural</span><span class="chip">Educación</span></div>
+        </div>
+      </div>
+
+      <div class="card topic">
+        <img src="img/auditorio-velocity.jpg" alt="Charla ArcGIS Velocity">
+        <div>
+          <h3>4. Datos en tiempo real</h3>
+          <p>"Detección en tiempo real: del dato a la respuesta operativa con <b>ArcGIS Velocity</b>". Sensores e IoT que alimentan mapas vivos para reaccionar a fugas, inundaciones o tráfico en el momento en que ocurren.</p>
+          <div class="chips"><span class="chip">IoT</span><span class="chip">Streaming</span><span class="chip">Operaciones</span></div>
+        </div>
+      </div>
+
+      <div class="card topic">
+        <img src="img/v-sag.jpg" alt="SAG Award 2026 UPME">
+        <div>
+          <h3>5. Premio SAG 2026</h3>
+          <p>El <b>Special Achievement in GIS Award</b> fue para la <b>UPME</b> (Unidad de Planeación Minero Energética) por su <b>GeoPortal Sectorial del sector minero energético</b>: una muestra de cómo una entidad pública abre sus datos geográficos para planear mejor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Talleres -->
+<section class="block">
+  <div class="wrap">
+    <p class="eyebrow">Talleres</p>
+    <h2>Aprender haciendo</h2>
+    <p class="lead">Además de las plenarias, la CUE ofrece laboratorios gratuitos con instructores certificados. Estos fueron los dos que elegí:</p>
+    <div class="grid g2">
+      <div class="card">
+        <span class="badge blue">Intermedio · ArcGIS Drone2Map</span>
+        <h3 style="margin-top:10px">Uso de imágenes de drones para la inspección de estructuras</h3>
+        <p>Cómo convertir fotos tomadas con dron en ortomosaicos y modelos 3D para revisar puentes, edificios o redes sin exponer a las personas. Conecta directamente con empresas como <a href="#p-ecompass">eCompass</a>.</p>
+      </div>
+      <div class="card">
+        <span class="badge blue">Básico · ArcGIS Pro</span>
+        <h3 style="margin-top:10px">Agentes de IA para la visualización y análisis de datos</h3>
+        <p>Asistentes que entienden instrucciones en lenguaje natural para crear mapas, filtrar datos y generar análisis. Para un ingeniero TIC es la puerta de entrada a integrar IA y SIG en aplicaciones reales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ecosistema -->
+<section class="block">
+  <div class="wrap">
+    <p class="eyebrow">El ecosistema</p>
+    <h2>¿Quién hace qué alrededor de ArcGIS?</h2>
+    <p class="lead">En la feria descubrí que ArcGIS es el centro de un ecosistema de empresas aliadas (Esri Partner Network). Cada una ocupa un nicho distinto. Así los organizo:</p>
+    <div class="eco">
+      <div class="row"><div class="lab">Captura de datos</div><div class="items">
+        <a href="#p-planet">Planet</a><a href="#p-vantor">Vantor</a><a href="#p-synspective">Synspective</a><a href="#p-here">HERE</a><a href="#p-ecompass">eCompass</a>
+        <span class="note">satélites ópticos y de radar, datos viales, drones</span></div></div>
+      <div class="row core"><div class="lab">Plataforma</div><div class="items">
+        <a href="#plenaria">Esri ArcGIS</a><span class="note">Pro · Online · Enterprise · Utility Network · Drone2Map · Velocity</span></div></div>
+      <div class="row"><div class="lab">Integración y soluciones</div><div class="items">
+        <a href="#p-mpsig">MPSIG</a><a href="#p-dreamgis">DreamGIS</a><a href="#p-intelligis">Intelligis</a><a href="#p-procalculo">Procalculo</a>
+        <span class="note">servicios públicos, SIG corporativo, operaciones de campo</span></div></div>
+      <div class="row local"><div class="lab">Territorio y sector público</div><div class="items">
+        <a href="#p-planeta">Planeta Oxygeno</a><span class="note">entes territoriales de Norte de Santander, ODS</span></div></div>
+      <div class="row"><div class="lab">Formación</div><div class="items">
+        <a href="#p-unigis">UNIGIS América Latina</a><span class="note">posgrados en SIG · convenio Unilibre–Esri</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners -->
+<section class="block" id="partners">
+  <div class="wrap">
+    <p class="eyebrow">Empresas aliadas</p>
+    <h2>Nicho, servicios y mi ventaja como ingeniero TIC</h2>
+    <p class="lead">Para cada empresa resumo a qué se dedica, sus servicios principales y qué podría aportar (y aprender) un ingeniero en TIC. La información se verificó en fuentes oficiales.</p>
+
+    <article class="featured" id="p-planeta">
+      <img src="img/planeta-stand.jpg" alt="Stand de Planeta Oxygeno en la CUE 2026. De izquierda a derecha: Profesor Ing. Francisco Sierra, Manuel Francisco Lemos (Gerente General de Esri Colombia y Ecuador) y Dr. Diego Armando Yáñez Meza (Rector de la Universidad Libre Seccional Cúcuta)">
+      <div class="body">
+        <span class="badge green">Aliado regional · Norte de Santander</span>
+        <h3 style="font-size:1.5rem;margin:10px 0 4px">Planeta Oxygeno S.A.S.</h3>
+        <p class="muted" style="margin-top:0">"Transformando territorio a través de mapas SIG" · Esri Partner Network · Cúcuta</p>
+        <p><b>Nicho:</b> asesora a <b>entes territoriales</b> (alcaldías, gobernación y entidades públicas) en los procesos que deben cumplir como administradores públicos, usando SIG sobre ArcGIS, con una metodología orientada a los <b>Objetivos de Desarrollo Sostenible</b> y la <b>Agenda 2030</b>.</p>
+        <p><b>Servicios:</b> soluciones SIG para la toma de decisiones públicas · planificación territorial · proyectos alineados a los ODS · articulación academia–empresa.</p>
+        <p><b>En la CUE 2026</b> presentó <b>"Alcalde por 5 minutos — Del dato a la decisión"</b>, una experiencia interactiva en la que el visitante asume la administración de un municipio ficticio con recursos limitados y debe decidir apoyado en datos geográficos. En la foto, de izquierda a derecha: <b>Profesor Ing. Francisco Sierra</b>; <b>Manuel Francisco Lemos</b>, Gerente General de Esri Colombia y Ecuador, y el <b>Dr. Diego Armando Yáñez Meza</b>, Rector de la Universidad Libre Seccional Cúcuta.</p>
+        <div class="partner" style="box-shadow:none;border:0"><div class="tic"><b>Ventaja TIC:</b> es la empresa SIG de nuestra región y ya trabaja de la mano con la universidad. Un perfil TIC complementa a sus consultores con desarrollo de aplicaciones web (Experience Builder, Dashboards), automatización con Python, bases de datos geográficas, integración de datos abiertos (DANE, IGAC, datos.gov.co) e inteligencia artificial.</div></div>
+        <p class="small muted" style="margin-top:10px">Fuentes: <a href="https://www.esri.co/es-co/nosotros/business-partners/directorio-partners/planeta-oxygen-br" target="_blank" rel="noopener">directorio de partners Esri Colombia</a> · <a href="https://www.unilibre.edu.co/noticias/universidad-libre-de-cucuta-se-convierte-en-la-primera-de-norte-de-santander-en-incorporar-formacion-en-tecnologia-sig" target="_blank" rel="noopener">Unilibre</a></p>
+      </div>
+    </article>
+
+    <div class="grid g3">
+
+      <article class="partner" id="p-planet">
+        <div class="thumb"><img src="img/p-planet.jpg" alt="Satélite SuperDove de Planet a escala real"></div>
+        <div class="body">
+          <span class="badge blue">Captura · Satélites</span>
+          <h3>Planet</h3>
+          <p class="small"><b>Nicho:</b> fotografía casi toda la superficie terrestre <b>todos los días</b> con ~430 pequeños satélites (Dove/SuperDove).</p>
+          <ul><li>PlanetScope: imágenes diarias (~3 m)</li><li>SkySat y Pelican: alta resolución</li><li>Detección de cambios con IA</li></ul>
+          <div class="tic"><b>Ventaja TIC:</b> APIs de imágenes, series de tiempo y machine learning para detectar cambios.</div>
+          <p class="src">Fuente: <a href="https://earth.esa.int/eogateway/missions/planetscope" target="_blank" rel="noopener">ESA</a> · <a href="https://www.planet.com" target="_blank" rel="noopener">planet.com</a></p>
+        </div>
+      </article>
+
+      <article class="partner" id="p-procalculo">
+        <div class="thumb"><img src="img/dani-planet.jpg" alt="Stand Planet y Procalculo" style="object-position:50% 30%"></div>
+        <div class="body">
+          <span class="badge blue">Integración · Imágenes</span>
+          <h3>Procalculo</h3>
+          <p class="small"><b>Nicho:</b> más de 50 años en información geográfica; <b>único revendedor autorizado de Planet en Colombia</b>. De su operación nació Esri Colombia (2014).</p>
+          <ul><li>Distribución de imágenes satelitales y software SIG</li><li>Mapas.co – Caleidoscopio (imágenes en la nube)</li><li>Con el IGAC: detección de cambios en vías y edificaciones con IA para el catastro</li></ul>
+          <div class="tic"><b>Ventaja TIC:</b> plataformas en la nube, IA aplicada a catastro multipropósito.</div>
+          <p class="src">Fuente: <a href="https://www.businesswire.com/news/home/20250717149785/en" target="_blank" rel="noopener">Business Wire</a> · <a href="https://www.larepublica.co/internet-economy/esri-se-enfocara-en-el-mapeo-digital-de-proyectos-de-catastro-e-infraestructura-2605690" target="_blank" rel="noopener">La República</a></p>
+        </div>
+      </article>
+
+      <article class="partner" id="p-mpsig">
+        <div class="thumb"><img src="img/p-mpsig.jpg" alt="Folleto MPSIG"></div>
+        <div class="body">
+          <span class="badge blue">Integración · Servicios públicos</span>
+          <h3>MPSIG — MultiProcesos SIG</h3>
+          <p class="small"><b>Nicho:</b> modernización SIG para empresas de energía, gas, agua y telecomunicaciones. Esri <b>Gold Partner</b> con especialidad Network Management. Colombia, Chile, Panamá y México.</p>
+          <ul><li>ArcGIS Utility Network</li><li>Edición web de redes (UNE)</li><li>Integración con SAP, Smartflex, IBM Maximo</li><li>Diseño de redes con ArcFM</li></ul>
+          <div class="tic"><b>Ventaja TIC:</b> integración de sistemas empresariales, APIs y desarrollo web: perfil TIC puro.</div>
+          <p class="src">Fuente: <a href="https://multiprocesos.com/" target="_blank" rel="noopener">multiprocesos.com</a></p>
+        </div>
+      </article>
+
+      <article class="partner" id="p-dreamgis">
+        <div class="thumb"><img src="img/p-dreamgis.jpg" alt="Tarjeta DreamGIS"></div>
+        <div class="body">
+          <span class="badge blue">Integración · SIG corporativo</span>
+          <h3>DreamGIS</h3>
+          <p class="small"><b>Nicho:</b> SIG corporativo para energía, infraestructura, agroindustria y defensa. Más de 200 proyectos. Distribuye Vantor y Synspective en Colombia.</p>
+          <ul><li>ArcGIS Enterprise</li><li>Imágenes satelitales y radar</li><li>VertiGIS para inspección de activos</li></ul>
+          <div class="tic"><b>Ventaja TIC:</b> servidores, nube, ETL y DevOps aplicados a SIG.</div>
+          <p class="src">Fuente: <a href="https://www.dreamgis.com/" target="_blank" rel="noopener">dreamgis.com</a></p>
+        </div>
+      </article>
+
+      <article class="partner" id="p-intelligis">
+        <div class="thumb"><img src="img/p-intelligis.jpg" alt="Folleto Intelligis"></div>
+        <div class="body">
+          <span class="badge blue">Soluciones · Operaciones de campo</span>
+          <h3>Intelligis Technologies</h3>
+          <p class="small"><b>Nicho:</b> control de personas, vehículos y territorio en tiempo real. Con sede en Panamá y clientes en Latinoamérica.</p>
+          <ul><li>Delego: logística de última milla</li><li>IntelliFleet: flotas y telemática</li><li>SmartMaps: datos territoriales listos para usar</li></ul>
+          <div class="tic"><b>Ventaja TIC:</b> SaaS, IoT, optimización de rutas y analítica en tiempo real.</div>
+          <p class="src">Fuente: <a href="https://www.intelligisgroup.com" target="_blank" rel="noopener">intelligisgroup.com</a></p>
+        </div>
+      </article>
+
+      <article class="partner" id="p-vantor">
+        <div class="thumb"><img src="img/p-vantor.jpg" alt="Folleto Vantor Hub"></div>
+        <div class="body">
+          <span class="badge blue">Captura · Satélites</span>
+          <h3>Vantor (antes Maxar)</h3>
+          <p class="small"><b>Nicho:</b> inteligencia espacial con imágenes satelitales comerciales de muy alta resolución. Plataforma con IA Tensorglobe.</p>
+          <ul><li>Vantor Hub: imágenes en la nube por suscripción</li><li>WorldView (30 cm) y mapas base Vivid (15 cm)</li><li>Modelos 3D del terreno</li></ul>
+          <div class="tic"><b>Ventaja TIC:</b> consumo de APIs, streaming de mapas y monitoreo de cambios con IA.</div>
+          <p class="src">Fuente: <a href="https://secure.businesswire.com/news/home/20251001760322/en/Vantor-Rebrands-from-Maxar-Intelligence-Unveils-AI-Powered-Platform" target="_blank" rel="noopener">Business Wire</a></p>
+        </div>
+      </article>
+
+      <article class="partner" id="p-synspective">
+        <div class="thumb"><img src="img/p-synspective.jpg" alt="Insignias de misiones StriX de Synspective"></div>
+        <div class="body">
+          <span class="badge blue">Captura · Radar</span>
+          <h3>Synspective</h3>
+          <p class="small"><b>Nicho:</b> satélites de radar <b>StriX</b> (Japón) que ven a través de nubes y de noche, clave en el trópico.</p>
+          <ul><li>Resolución hasta 25 cm</li><li>Monitoreo de hundimientos del terreno</li><li>Evaluación de inundaciones y desastres</li></ul>
+          <div class="tic"><b>Ventaja TIC:</b> procesamiento de imágenes y visión por computador.</div>
+          <p class="src">Fuente: <a href="https://www.synspective.com/news/south_america_partnerships/" target="_blank" rel="noopener">synspective.com</a></p>
+        </div>
+      </article>
+
+      <article class="partner" id="p-here">
+        <div class="thumb"><img src="img/p-here.jpg" alt="Folleto HERE GIS Data Suite"></div>
+        <div class="body">
+          <span class="badge blue">Captura · Datos de localización</span>
+          <h3>HERE Technologies</h3>
+          <p class="small"><b>Nicho:</b> mapas y datos de localización de alta precisión. Aliado de Esri desde 2016; en Colombia lo distribuye Geodatamaps.</p>
+          <ul><li>HERE GIS Data Suite: más de 70 capas listas para ArcGIS</li><li>Tráfico histórico, red vial y direcciones</li><li>Cobertura celular</li></ul>
+          <div class="tic"><b>Ventaja TIC:</b> ruteo, geocodificación y apps de movilidad.</div>
+          <p class="src">Fuente: <a href="https://www.here.com/about/press-releases/here-technologies-launches-gis-data-suite-a-new-standard-in-foundational-gis" target="_blank" rel="noopener">here.com</a></p>
+        </div>
+      </article>
+
+      <article class="partner" id="p-ecompass">
+        <div class="thumb"><img src="img/p-ecompass.jpg" alt="Tarjeta eCompass"></div>
+        <div class="body">
+          <span class="badge blue">Captura · Drones</span>
+          <h3>eCompass</h3>
+          <p class="small"><b>Nicho:</b> servicios geoespaciales con drones profesionales y LiDAR, procesados en plataformas Esri. Más de 100 clientes, entre ellos el IGAC.</p>
+          <ul><li>Venta y operación de drones</li><li>Levantamientos LiDAR</li><li>Capacitación y soporte</li></ul>
+          <div class="tic"><b>Ventaja TIC:</b> nubes de puntos, fotogrametría y gemelos digitales.</div>
+          <p class="src">Fuente: <a href="https://www.ecompass.co" target="_blank" rel="noopener">ecompass.co</a></p>
+        </div>
+      </article>
+
+      <article class="partner" id="p-unigis">
+        <div class="thumb"><img src="img/p-unigis.jpg" alt="Folleto UNIGIS América Latina"></div>
+        <div class="body">
+          <span class="badge amber">Formación</span>
+          <h3>UNIGIS América Latina</h3>
+          <p class="small"><b>Nicho:</b> posgrados virtuales en SIG con respaldo de la Universidad de Salzburgo (Austria).</p>
+          <ul><li>UNIGIS Professional (especialización)</li><li>Maestría (MSc) de 24 meses</li><li>Seminarios web gratuitos</li></ul>
+          <div class="tic"><b>Ventaja TIC:</b> ruta de posgrado internacional sin salir de Cúcuta.</div>
+          <p class="src">Fuente: <a href="https://unigisamericalatina.net/" target="_blank" rel="noopener">unigisamericalatina.net</a></p>
+        </div>
+      </article>
+
+    </div>
+    <p style="margin-top:20px"><a href="#contactos" data-ir="contactos"><b>Ver la red de contactos que hice en el evento →</b></a></p>
+  </div>
+</section>
+
+<!-- Oportunidades -->
+<section class="block">
+  <div class="wrap">
+    <p class="eyebrow">Oportunidades</p>
+    <h2>¿Qué significa esto para Cúcuta y para la Ingeniería en TIC?</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Lo que el sector está pidiendo</h3>
+        <ul class="opp">
+          <li><b>Desarrollo de aplicaciones</b> web y móviles sobre mapas (ArcGIS Maps SDK, Experience Builder).</li>
+          <li><b>Automatización y datos</b>: Python/ArcPy, bases de datos geográficas, integración con ERP.</li>
+          <li><b>Inteligencia artificial</b>: agentes que consultan datos en lenguaje natural y detectan cambios en imágenes.</li>
+          <li><b>Infraestructura</b>: nube, servidores ArcGIS Enterprise, seguridad e IoT en tiempo real.</li>
+        </ul>
+        <p class="muted small">Casi todos los casos mostrados en la plenaria (UNGRD, Mintransporte, UPME, alcaldías y gobernaciones) son de entidades públicas: el territorio necesita ingenieros que conviertan datos en decisiones.</p>
+      </div>
+      <div class="callout">
+        <h3>Una alianza que ya está en marcha</h3>
+        <p>El convenio Unilibre–Esri (2025), el semillero SIGDTI y una empresa SIG local como Planeta Oxygeno, que ya trabaja con la universidad, forman un triángulo universidad–empresa–tecnología con mucho potencial para la región:</p>
+        <ul class="opp">
+          <li>Proyectos del semillero SIGDTI centrados en la población estudiantil: de dónde vienen nuestros estudiantes, cómo llegan a la universidad y un campus digital hecho por y para ellos.</li>
+          <li>Después, prácticas y proyectos de grado con datos reales de municipios de Norte de Santander.</li>
+          <li>Certificaciones Esri y laboratorios para estudiantes de Ingeniería en TIC.</li>
+          <li>Geoportales y tableros abiertos para la transparencia en la región.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Conclusiones -->
+<section class="block">
+  <div class="wrap">
+    <p class="eyebrow">Conclusiones</p>
+    <h2>Lo que me llevo</h2>
+    <div class="grid g3">
+      <div class="card"><h3>1. El SIG está en todas partes</h3><p>Emergencias, energía, transporte, educación, banca y catastro usan ArcGIS. Saber de mapas ya no es solo de geógrafos.</p></div>
+      <div class="card"><h3>2. La IA cambió las reglas</h3><p>Hoy se pregunta al mapa en lenguaje natural. Quien sepa unir IA, datos y territorio tendrá una ventaja real.</p></div>
+      <div class="card"><h3>3. La oportunidad está cerca</h3><p>Con el convenio, el semillero y aliados regionales, Cúcuta puede formar el talento SIG que el país está pidiendo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Videos -->
+<section class="block" id="videos">
+  <div class="wrap">
+    <p class="eyebrow">Videos</p>
+    <h2>La CUE 2026 en video</h2>
+    <p class="lead">19 videos cortos que grabé durante el evento, en el orden en que los viví.</p>
+    <div class="vaviso" id="v-aviso">No se encuentran los videos. Para verlos, la carpeta <b>videos</b> debe estar junto al archivo <b>index.html</b>.</div>
+
+    <div class="vgroup"><h3>Llegada y bienvenida</h3><div class="vgrid">
+      <div class="vcard vert"><video controls preload="none" playsinline poster="img/vp-01-llegada-agora.jpg" src="videos/01-llegada-agora.mp4"></video><p>Llegada al Ágora Bogotá <span>· 50 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-02-bienvenida-publico.jpg" src="videos/02-bienvenida-publico.mp4"></video><p>Bienvenida desde el público <span>· 16 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-03-bienvenida-escenario.jpg" src="videos/03-bienvenida-escenario.mp4"></video><p>"Bienvenidos" en el escenario principal <span>· 12 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-04-auditorio-lleno.jpg" src="videos/04-auditorio-lleno.mp4"></video><p>Auditorio lleno <span>· 10 s</span></p></div>
+    </div></div>
+
+    <div class="vgroup"><h3>Plenaria: ArcGIS y casos en Colombia</h3><div class="vgrid">
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-05-sig-mundo-inteligente.jpg" src="videos/05-sig-mundo-inteligente.mp4"></video><p>"SIG: Creando un mundo más inteligente" <span>· 22 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-06-plataforma-arcgis.jpg" src="videos/06-plataforma-arcgis.mp4"></video><p>ArcGIS, una plataforma integral <span>· 19 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-07-casos-emergencias.jpg" src="videos/07-casos-emergencias.mp4"></video><p>Casos: respuesta ante emergencias <span>· 27 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-08-casos-movilidad.jpg" src="videos/08-casos-movilidad.mp4"></video><p>Casos: movilidad e infraestructura <span>· 18 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-09-equipo-esri.jpg" src="videos/09-equipo-esri.mp4"></video><p>Equipo de Esri Colombia <span>· 1 min 31 s</span></p></div>
+    </div></div>
+
+    <div class="vgroup"><h3>Inteligencia artificial</h3><div class="vgrid">
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-10-lemos-inteligencia.jpg" src="videos/10-lemos-inteligencia.mp4"></video><p>Manuel Francisco Lemos: "¿Qué es la inteligencia?" <span>· 23 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-11-chivite-presentacion.jpg" src="videos/11-chivite-presentacion.mp4"></video><p>Presentación de Ismael Chivite <span>· 10 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-12-chivite-demo-ia.jpg" src="videos/12-chivite-demo-ia.mp4"></video><p>Demo de IA en ArcGIS: Saber 11 en Bogotá <span>· 52 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-13-covelli-hola.jpg" src="videos/13-covelli-hola.mp4"></video><p>Santiago Covelli <span>· 13 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-14-covelli-territorio.jpg" src="videos/14-covelli-territorio.mp4"></video><p>"Los problemas más complejos ocurren sobre un territorio" <span>· 39 s</span></p></div>
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-15-covelli-aprendemos.jpg" src="videos/15-covelli-aprendemos.mp4"></video><p>"Cómo aprendemos" <span>· 20 s</span></p></div>
+    </div></div>
+
+    <div class="vgroup"><h3>Premio SAG 2026</h3><div class="vgrid">
+      <div class="vcard"><video controls preload="none" playsinline poster="img/vp-16-premio-sag-upme.jpg" src="videos/16-premio-sag-upme.mp4"></video><p>UPME recibe el SAG Award 2026 <span>· 2 min 1 s</span></p></div>
+    </div></div>
+
+    <div class="vgroup"><h3>Feria de empresas aliadas</h3><div class="vgrid">
+      <div class="vcard vert"><video controls preload="none" playsinline poster="img/vp-17-satelite-planet.jpg" src="videos/17-satelite-planet.mp4"></video><p>Satélite SuperDove de Planet a escala real <span>· 49 s</span></p></div>
+      <div class="vcard vert"><video controls preload="none" playsinline poster="img/vp-18-ecocomputo.jpg" src="videos/18-ecocomputo.mp4"></video><p>Robot de EcoCómputo <span>· 12 s</span></p></div>
+      <div class="vcard vert"><video controls preload="none" playsinline poster="img/vp-19-recorrido-dani.jpg" src="videos/19-recorrido-dani.mp4"></video><p>Mi recorrido por el evento <span>· 16 s</span></p></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- Galería -->
+<section class="block">
+  <div class="wrap">
+    <p class="eyebrow">Galería</p>
+    <h2>Momentos de la CUE 2026</h2>
+    <div class="gallery">
+      <figure><img src="img/v-agora.jpg" alt="Entrada al Ágora Bogotá"></figure>
+      <figure><img src="img/auditorio-emergencias.jpg" alt="Auditorio durante la plenaria"></figure>
+      <figure><img src="img/equipo-esri.jpg" alt="Equipo de Esri Colombia en el escenario"></figure>
+      <figure><img src="img/escarapela.jpg" alt="Escarapela de Dani Ismael Rodríguez Gómez"></figure>
+      <figure><img src="img/v-lemos.jpg" alt="Charla ¿Qué es la inteligencia?"></figure>
+      <figure><img src="img/refrigerio.jpg" alt="Refrigerio entre asistentes"></figure>
+      <figure><img src="img/v-covelli.jpg" alt="Charla de Santiago Covelli"></figure>
+      <figure><img src="img/v-movilidad.jpg" alt="Casos de movilidad e infraestructura"></figure>
+      <figure><img src="img/app-talleres.jpg" alt="Talleres elegidos en la app del evento"></figure>
+      <figure><img src="img/ecocomputo.jpg" alt="Robot de EcoCómputo, reciclaje de residuos electrónicos"></figure>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Informe elaborado por Dani Ismael Rodríguez Gómez · Ingeniería en TIC · Universidad Libre Seccional Cúcuta · Octubre de 2026.<br>
+    Fotografías propias tomadas durante el evento. Los datos de cada empresa provienen de sus sitios oficiales y de prensa especializada, enlazados en cada ficha.
+  </div>
+</footer>
+</main>
+
+<!-- ============================ BIBLIOTECA ============================ -->
+<main id="biblioteca" role="tabpanel" hidden>
+
+<div class="lib-hero">
+  <div class="wrap">
+    <span class="kicker">Biblioteca de saberes</span>
+    <h1>Lo que necesito saber para trabajar con SIG</h1>
+    <p>Mi guía de estudio después de la CUE 2026: conceptos básicos, la plataforma ArcGIS, imágenes satelitales, inteligencia artificial, el SIG en el sector público colombiano y una ruta de aprendizaje con recursos oficiales.</p>
+    <nav class="lib-nav">
+      <a href="#b-fund">1. Fundamentos</a>
+      <a href="#b-arcgis">2. ArcGIS</a>
+      <a href="#b-imagenes">3. Imágenes y drones</a>
+      <a href="#b-ia">4. GeoIA</a>
+      <a href="#b-publico">5. Sector público</a>
+      <a href="#b-glosario">6. Glosario</a>
+      <a href="#b-ruta">7. Ruta de aprendizaje</a>
+    </nav>
+  </div>
+</div>
+
+<!-- 1. Fundamentos -->
+<section class="block" id="b-fund">
+  <div class="wrap">
+    <p class="eyebrow">1 · Fundamentos</p>
+    <h2>¿Qué es un SIG?</h2>
+    <p class="lead">Un <b>Sistema de Información Geográfica (SIG)</b> es un conjunto de software, datos, personas y métodos para capturar, almacenar, analizar y mostrar información que tiene una <b>ubicación</b>. La idea clave: casi todo dato (un colegio, un accidente, un cultivo, un poste) ocurre en algún lugar, y al ubicarlo en un mapa aparecen patrones que en una tabla no se ven.</p>
+
+    <div class="grid g3">
+      <div class="card concept"><h3><span class="ico">C</span>Capas</h3><p>Un mapa SIG se arma con capas superpuestas: vías, barrios, ríos, predios, colegios. Cada capa tiene geometría (dónde está) y una tabla de atributos (qué es).</p></div>
+      <div class="card concept"><h3><span class="ico">S</span>Sistema de coordenadas</h3><p>Define cómo se ubican los datos sobre la Tierra. En Colombia el IGAC adoptó el <b>Origen Nacional (CTM12)</b>, <a href="https://epsg.io/9377" target="_blank" rel="noopener">EPSG:9377</a>, sobre el marco MAGNA-SIRGAS. En la web es común <b>WGS84</b> (EPSG:4326).</p></div>
+      <div class="card concept"><h3><span class="ico">A</span>Análisis espacial</h3><p>Preguntas que solo un SIG responde: ¿qué está cerca de qué? (proximidad), ¿qué se cruza? (superposición), ¿dónde se concentra? (puntos calientes), ¿cuál es la mejor ruta? (redes).</p></div>
+    </div>
+
+    <h3 style="margin-top:28px">Los dos tipos de datos geográficos</h3>
+    <div class="vs">
+      <div><b>Vector</b>Puntos (un colegio), líneas (una vía) y polígonos (un barrio). Ideal para objetos con límites claros. Formatos: shapefile, geodatabase, GeoJSON.</div>
+      <div><b>Ráster</b>Una cuadrícula de píxeles, cada uno con un valor: una foto satelital, la temperatura, la elevación. Ideal para fenómenos continuos. Formatos: GeoTIFF, imágenes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ArcGIS -->
+<section class="block" id="b-arcgis">
+  <div class="wrap">
+    <p class="eyebrow">2 · La plataforma ArcGIS</p>
+    <h2>Las herramientas que vi en la CUE</h2>
+    <p class="lead">ArcGIS, de Esri, es la plataforma SIG más usada en el mundo. No es un programa sino una familia de productos que se conectan entre sí.</p>
+    <div class="grid g3">
+      <div class="card tool"><span class="what">Escritorio</span><h3>ArcGIS Pro</h3><p class="small">El software principal para crear mapas, editar datos y hacer análisis avanzados. Incluye asistentes de IA.</p><a class="more" href="https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview" target="_blank" rel="noopener">Sitio oficial →</a></div>
+      <div class="card tool"><span class="what">Nube</span><h3>ArcGIS Online</h3><p class="small">Mapas y aplicaciones en el navegador para compartir con cualquiera, sin instalar nada.</p><a class="more" href="https://doc.arcgis.com/es/arcgis-online/get-started/what-is-agol.htm" target="_blank" rel="noopener">Documentación →</a></div>
+      <div class="card tool"><span class="what">Servidores propios</span><h3>ArcGIS Enterprise</h3><p class="small">La misma plataforma instalada en la infraestructura de la organización, para datos sensibles o de gran volumen.</p><a class="more" href="https://www.esri.com/en-us/arcgis/products/arcgis-enterprise/overview" target="_blank" rel="noopener">Sitio oficial →</a></div>
+      <div class="card tool"><span class="what">Campo</span><h3>Survey123 y Field Maps</h3><p class="small">Formularios y mapas en el celular para recoger datos en terreno, incluso sin internet.</p><a class="more" href="https://www.esri.com/en-us/arcgis/products/arcgis-field-maps/overview" target="_blank" rel="noopener">Field Maps →</a> <a class="more" href="https://survey123.arcgis.com/" target="_blank" rel="noopener">Survey123 →</a></div>
+      <div class="card tool"><span class="what">Visualización</span><h3>Dashboards y Experience Builder</h3><p class="small">Tableros de indicadores y aplicaciones web sin programar. Muy usados por alcaldías y gobernaciones.</p><a class="more" href="https://www.esri.com/en-us/arcgis/products/arcgis-dashboards/overview" target="_blank" rel="noopener">Dashboards →</a> <a class="more" href="https://www.esri.com/en-us/arcgis/products/arcgis-experience-builder/overview" target="_blank" rel="noopener">Experience Builder →</a></div>
+      <div class="card tool"><span class="what">Comunicación</span><h3>StoryMaps y Hub</h3><p class="small">Historias con mapas y portales de datos abiertos para la ciudadanía.</p><a class="more" href="https://storymaps.arcgis.com/" target="_blank" rel="noopener">StoryMaps →</a> <a class="more" href="https://www.esri.com/en-us/arcgis/products/arcgis-hub/overview" target="_blank" rel="noopener">Hub →</a></div>
+      <div class="card tool"><span class="what">Desarrollo</span><h3>Maps SDK y API de Python</h3><p class="small">Para un ingeniero TIC: crear aplicaciones web con JavaScript y automatizar procesos con Python (ArcPy y ArcGIS API for Python).</p><a class="more" href="https://developers.arcgis.com/javascript/latest/" target="_blank" rel="noopener">JavaScript →</a> <a class="more" href="https://developers.arcgis.com/python/latest/" target="_blank" rel="noopener">Python →</a></div>
+      <div class="card tool"><span class="what">Redes</span><h3>Utility Network</h3><p class="small">Modelo para redes de energía, gas, agua y telecomunicaciones (lo que hace MPSIG).</p><a class="more" href="https://www.esri.com/en-us/arcgis/products/arcgis-utility-network/overview" target="_blank" rel="noopener">Sitio oficial →</a></div>
+      <div class="card tool"><span class="what">Tiempo real</span><h3>ArcGIS Velocity</h3><p class="small">Recibe datos de sensores e IoT y los muestra en mapas vivos con alertas automáticas.</p><a class="more" href="https://www.esri.com/en-us/arcgis/products/arcgis-velocity/overview" target="_blank" rel="noopener">Sitio oficial →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Imágenes -->
+<section class="block" id="b-imagenes">
+  <div class="wrap">
+    <p class="eyebrow">3 · Imágenes satelitales y drones</p>
+    <h2>Ver la Tierra desde arriba</h2>
+    <p class="lead">La <b>teledetección</b> obtiene información de la superficie sin tocarla. En la feria vi tres formas: satélites ópticos (Planet, Vantor), satélites de radar (Synspective) y drones (eCompass).</p>
+    <div class="vs">
+      <div><b>Óptico</b>Funciona como una cámara: capta la luz del sol reflejada. Da imágenes fáciles de interpretar, pero no ve a través de las nubes ni de noche.</div>
+      <div><b>Radar (SAR)</b>El satélite emite su propia señal y mide el rebote. Ve a través de nubes y de noche, y detecta hundimientos del terreno de pocos milímetros. Clave en zonas tropicales como Colombia.</div>
+    </div>
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card"><h3>Las tres resoluciones</h3><p class="small"><b>Espacial:</b> tamaño del píxel (30 cm, 3 m…). <b>Temporal:</b> cada cuánto pasa el satélite (Planet: a diario). <b>Espectral:</b> cuántas "bandas" de luz capta (visible, infrarrojo…).</p></div>
+      <div class="card"><h3>Índices como el NDVI</h3><p class="small">Combinan bandas para medir algo: el NDVI usa rojo e infrarrojo cercano para estimar qué tan sana está la vegetación. Útil en agricultura y deforestación.</p></div>
+      <div class="card"><h3>Drones y LiDAR</h3><p class="small">Con fotos de dron se generan <b>ortomosaicos</b> y modelos 3D (ArcGIS Drone2Map). El <b>LiDAR</b> usa láser para medir alturas con precisión, incluso bajo la vegetación.</p><a class="more small" href="https://www.esri.com/en-us/arcgis/products/arcgis-drone2map/overview" target="_blank" rel="noopener">ArcGIS Drone2Map →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. GeoIA -->
+<section class="block" id="b-ia">
+  <div class="wrap">
+    <p class="eyebrow">4 · Inteligencia artificial geoespacial</p>
+    <h2>GeoIA: el tema central de la CUE 2026</h2>
+    <p class="lead"><b>GeoIA</b> es la unión de la inteligencia artificial con los SIG. Lo vi en la demostración de Ismael Chivite y en el taller de Agentes de IA en ArcGIS Pro.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Extraer información de imágenes</h3><p class="small">Modelos de aprendizaje profundo que detectan automáticamente edificaciones, vías, vehículos o cambios entre dos fechas. Esri ofrece modelos preentrenados en el Living Atlas.</p></div>
+      <div class="card"><h3>Asistentes y agentes</h3><p class="small">Se le pide al SIG en lenguaje natural: "muéstrame los colegios con mejores resultados Saber 11 cerca de esta localidad", y el asistente arma el mapa o el análisis.</p></div>
+      <div class="card"><h3>Predicción</h3><p class="small">Aprendizaje automático con variables espaciales para predecir dónde habrá más accidentes, inundaciones o demanda de servicios.</p></div>
+    </div>
+    <p class="small" style="margin-top:12px">Para profundizar: <a href="https://www.esri.com/en-us/capabilities/geoai/overview" target="_blank" rel="noopener">GeoAI en Esri</a> · <a href="https://livingatlas.arcgis.com/es/" target="_blank" rel="noopener">ArcGIS Living Atlas</a></p>
+  </div>
+</section>
+
+<!-- 5. Sector público -->
+<section class="block" id="b-publico">
+  <div class="wrap">
+    <p class="eyebrow">5 · El SIG en el sector público colombiano</p>
+    <h2>Mapas para gobernar el territorio</h2>
+    <p class="lead">La mayoría de los casos de la CUE fueron de entidades públicas. Estos son los conceptos y fuentes de datos que más se usan en alcaldías y gobernaciones.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Conceptos clave</h3>
+        <ul class="small">
+          <li><b>POT / PBOT / EOT:</b> planes de ordenamiento territorial que cada municipio debe formular según su tamaño; definen usos del suelo, zonas de riesgo y expansión.</li>
+          <li><b>Plan de Desarrollo:</b> las metas de cada gobierno local; los SIG permiten hacerles seguimiento en mapas y tableros.</li>
+          <li><b>Catastro multipropósito:</b> inventario actualizado de predios que sirve para impuestos, formalización de tierras y planeación.</li>
+          <li><b>Gestión del riesgo:</b> mapas de amenaza y vulnerabilidad ante vendavales, inundaciones, deslizamientos y sismos.</li>
+          <li><b>ODS y Agenda 2030:</b> 17 objetivos de la ONU que se miden con indicadores territoriales. <a href="https://www.un.org/sustainabledevelopment/es/" target="_blank" rel="noopener">Ver ODS</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Datos abiertos para practicar</h3>
+        <div class="res small">
+          <a href="https://www.colombiaenmapas.gov.co/" target="_blank" rel="noopener">Colombia en Mapas</a><span class="muted">Portal oficial de cartografía del IGAC.</span>
+          <a href="https://geoportal.igac.gov.co/" target="_blank" rel="noopener">Geoportal IGAC</a><span class="muted">Cartografía básica, catastro y geodesia.</span>
+          <a href="https://geoportal.dane.gov.co/" target="_blank" rel="noopener">Geoportal DANE</a><span class="muted">Estadísticas y censos por municipio, manzana y vereda.</span>
+          <a href="https://www.icde.gov.co/" target="_blank" rel="noopener">ICDE</a><span class="muted">Infraestructura Colombiana de Datos Espaciales.</span>
+          <a href="https://www.datos.gov.co/" target="_blank" rel="noopener">datos.gov.co</a><span class="muted">Datos abiertos del Estado (muchos con coordenadas).</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Glosario -->
+<section class="block" id="b-glosario">
+  <div class="wrap">
+    <p class="eyebrow">6 · Glosario</p>
+    <h2>Términos que escuché en la CUE</h2>
+    <div class="glossary-tools"><input type="search" id="g-q" placeholder="Buscar un término…" aria-label="Buscar en el glosario"></div>
+    <dl class="glossary" id="glosario">
+      <div class="term"><dt>Atributo</dt><dd>Dato descriptivo de un elemento del mapa (nombre, área, población), guardado en una tabla.</dd></div>
+      <div class="term"><dt>Basemap (mapa base)</dt><dd>Mapa de fondo de referencia: calles, imágenes o relieve. Ej.: Vivid de Vantor.</dd></div>
+      <div class="term"><dt>Buffer (área de influencia)</dt><dd>Zona a una distancia fija alrededor de un elemento: "todo lo que está a 500 m del río".</dd></div>
+      <div class="term"><dt>Capa (layer)</dt><dd>Conjunto de elementos del mismo tipo que se muestra en el mapa.</dd></div>
+      <div class="term"><dt>Catastro multipropósito</dt><dd>Inventario de predios con información física, jurídica y económica para múltiples usos.</dd></div>
+      <div class="term"><dt>CubeSat</dt><dd>Satélite pequeño y estandarizado, como los SuperDove de Planet.</dd></div>
+      <div class="term"><dt>DSM / DTM</dt><dd>Modelo digital de superficie (incluye edificios y árboles) y de terreno (solo el suelo).</dd></div>
+      <div class="term"><dt>EPSG</dt><dd>Código que identifica un sistema de coordenadas. Colombia: EPSG:9377 (Origen Nacional).</dd></div>
+      <div class="term"><dt>Feature layer</dt><dd>Capa vectorial publicada como servicio web en ArcGIS Online o Enterprise.</dd></div>
+      <div class="term"><dt>Geocodificación</dt><dd>Convertir una dirección en coordenadas (y al revés: geocodificación inversa).</dd></div>
+      <div class="term"><dt>Geodatabase</dt><dd>Base de datos de Esri para guardar datos geográficos con reglas y relaciones.</dd></div>
+      <div class="term"><dt>Geoportal</dt><dd>Sitio web para consultar y descargar información geográfica (ej. IGAC, DANE, UPME).</dd></div>
+      <div class="term"><dt>Georreferenciar</dt><dd>Asignarle una ubicación en la Tierra a un dato o imagen.</dd></div>
+      <div class="term"><dt>GeoIA (GeoAI)</dt><dd>Inteligencia artificial aplicada a datos geográficos.</dd></div>
+      <div class="term"><dt>Gemelo digital</dt><dd>Réplica virtual 3D de una ciudad o infraestructura conectada a datos reales para simular escenarios.</dd></div>
+      <div class="term"><dt>IoT</dt><dd>Internet de las cosas: sensores conectados que envían datos en tiempo real (ArcGIS Velocity).</dd></div>
+      <div class="term"><dt>LiDAR</dt><dd>Sensor láser que mide distancias y genera nubes de puntos 3D muy precisas.</dd></div>
+      <div class="term"><dt>Living Atlas</dt><dd>Colección de mapas, capas e imágenes listas para usar en ArcGIS.</dd></div>
+      <div class="term"><dt>NDVI</dt><dd>Índice de vegetación calculado con bandas roja e infrarroja de una imagen.</dd></div>
+      <div class="term"><dt>Nube de puntos</dt><dd>Millones de puntos 3D obtenidos con LiDAR o fotogrametría.</dd></div>
+      <div class="term"><dt>Ortomosaico</dt><dd>Imagen aérea corregida geométricamente, unida a partir de muchas fotos, que se puede medir como un mapa.</dd></div>
+      <div class="term"><dt>Partner (Esri Partner Network)</dt><dd>Empresa aliada de Esri que vende, implementa o complementa ArcGIS. Niveles: Member, Silver, Gold, Platinum.</dd></div>
+      <div class="term"><dt>POT</dt><dd>Plan de Ordenamiento Territorial: instrumento que define cómo se usa el suelo de un municipio.</dd></div>
+      <div class="term"><dt>Ráster</dt><dd>Dato en forma de cuadrícula de píxeles (imágenes, elevación).</dd></div>
+      <div class="term"><dt>SAG Award</dt><dd>Special Achievement in GIS: premio de Esri a proyectos SIG destacados. En 2026 lo ganó la UPME.</dd></div>
+      <div class="term"><dt>SAR</dt><dd>Radar de apertura sintética: satélite que ve a través de nubes y de noche (Synspective).</dd></div>
+      <div class="term"><dt>Shapefile</dt><dd>Formato vectorial clásico de Esri, formado por varios archivos (.shp, .dbf, .shx…).</dd></div>
+      <div class="term"><dt>Teledetección</dt><dd>Obtener información de la superficie terrestre a distancia (satélites, aviones, drones).</dd></div>
+      <div class="term"><dt>Utility Network</dt><dd>Modelo de ArcGIS para redes de servicios públicos con conectividad y reglas.</dd></div>
+      <div class="term"><dt>Vector</dt><dd>Dato geográfico en forma de puntos, líneas o polígonos.</dd></div>
+      <div class="term"><dt>VTPK</dt><dd>Vector Tile Package: paquete de mapa base vectorial para usar sin conexión.</dd></div>
+      <div class="term"><dt>WGS84</dt><dd>Sistema de coordenadas global usado por el GPS (EPSG:4326).</dd></div>
+    </dl>
+    <p class="small muted" id="g-none" hidden>No encontré ese término.</p>
+  </div>
+</section>
+
+<!-- 7. Ruta -->
+<section class="block" id="b-ruta">
+  <div class="wrap">
+    <p class="eyebrow">7 · Ruta de aprendizaje</p>
+    <h2>Mi plan para aprender SIG como ingeniero TIC</h2>
+    <p class="lead">Un camino en cuatro niveles, con recursos oficiales y en su mayoría gratuitos. La licencia académica de ArcGIS puede gestionarse a través del convenio Unilibre–Esri.</p>
+    <div class="grid g2">
+      <div class="card">
+        <ol class="path">
+          <li><b>Nivel 1 · Fundamentos (2–4 semanas)</b><span class="small muted">Conceptos SIG, sistemas de coordenadas, primeros mapas en ArcGIS Online. Lecciones guiadas de Learn ArcGIS.</span>
+            <span class="lk"><a href="https://learn.arcgis.com/es/projects/get-started-with-arcgis-online/" target="_blank" rel="noopener">Primeros pasos con ArcGIS Online</a><a href="https://doc.arcgis.com/es/arcgis-online/get-started/get-started.htm" target="_blank" rel="noopener">Guía de inicio de ArcGIS Online</a><a href="https://epsg.io/9377" target="_blank" rel="noopener">Sistema de coordenadas de Colombia (EPSG:9377)</a></span></li>
+          <li><b>Nivel 2 · ArcGIS Pro y análisis (1–2 meses)</b><span class="small muted">Edición de datos, geodatabase, análisis de proximidad y superposición con datos del DANE e IGAC de Norte de Santander.</span>
+            <span class="lk"><a href="https://learn.arcgis.com/es/projects/get-started-with-arcgis-pro/" target="_blank" rel="noopener">Primeros pasos con ArcGIS Pro</a><a href="https://pro.arcgis.com/es/pro-app/latest/get-started/get-started.htm" target="_blank" rel="noopener">Introducción a ArcGIS Pro</a><a href="https://geoportal.dane.gov.co/" target="_blank" rel="noopener">Datos: Geoportal DANE</a><a href="https://www.colombiaenmapas.gov.co/" target="_blank" rel="noopener">Datos: Colombia en Mapas (IGAC)</a></span></li>
+          <li><b>Nivel 3 · Desarrollo y automatización (2–3 meses)</b><span class="small muted">Python con ArcPy y ArcGIS API for Python; una aplicación web con Experience Builder o el Maps SDK for JavaScript.</span>
+            <span class="lk"><a href="https://pro.arcgis.com/es/pro-app/latest/arcpy/get-started/what-is-arcpy-.htm" target="_blank" rel="noopener">Introducción a ArcPy</a><a href="https://developers.arcgis.com/python/latest/guide/" target="_blank" rel="noopener">Guía de ArcGIS API for Python</a><a href="https://learn.arcgis.com/es/projects/get-started-with-arcgis-experience-builder/" target="_blank" rel="noopener">Introducción a Experience Builder</a><a href="https://developers.arcgis.com/javascript/latest/tutorials/" target="_blank" rel="noopener">Tutoriales Maps SDK for JavaScript</a></span></li>
+          <li><b>Nivel 4 · Especialización</b><span class="small muted">GeoIA, imágenes satelitales o gestión pública territorial. Certificación técnica de Esri y, a futuro, un posgrado (por ejemplo UNIGIS).</span>
+            <span class="lk"><a href="https://learn.arcgis.com/es/projects/get-started-with-imagery/" target="_blank" rel="noopener">Introducción a las imágenes</a><a href="https://pro.arcgis.com/es/pro-app/latest/help/analysis/deep-learning/what-is-deep-learning-.htm" target="_blank" rel="noopener">Aprendizaje profundo en ArcGIS Pro</a><a href="https://www.esri.com/training/certification/" target="_blank" rel="noopener">Certificación técnica Esri</a><a href="https://unigisamericalatina.net/" target="_blank" rel="noopener">Posgrados UNIGIS</a></span></li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Recursos oficiales</h3>
+        <div class="res small">
+          <a href="https://www.esri.com/training/" target="_blank" rel="noopener">Esri Academy</a><span class="muted">Cursos, videos y rutas de formación de Esri.</span>
+          <a href="https://www.esri.com/training/mooc/" target="_blank" rel="noopener">MOOCs de Esri</a><span class="muted">Cursos masivos gratuitos por temporadas.</span>
+          <a href="https://learn.arcgis.com/es/" target="_blank" rel="noopener">Learn ArcGIS (español)</a><span class="muted">Lecciones prácticas paso a paso con datos reales.</span>
+          <a href="https://developers.arcgis.com/" target="_blank" rel="noopener">ArcGIS Developers</a><span class="muted">Documentación y tutoriales para programadores.</span>
+          <a href="https://pro.arcgis.com/es/pro-app/latest/arcpy/main/arcgis-pro-arcpy-reference.htm" target="_blank" rel="noopener">Referencia de ArcPy</a><span class="muted">Automatización de ArcGIS Pro con Python.</span>
+          <a href="https://www.esri.com/training/certification/" target="_blank" rel="noopener">Certificación técnica Esri</a><span class="muted">Validación profesional reconocida por las empresas aliadas.</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:28px">Proyectos de práctica para el semillero: primero, nuestra universidad</h3>
+    <p class="small muted" style="margin-top:0">Empezar por casa y por la gente: proyectos centrados en la población estudiantil de la Universidad Libre Cúcuta, que sirven para aprender ArcGIS y, al mismo tiempo, dejan una herramienta útil para la comunidad universitaria.</p>
+    <div class="grid g3">
+      <div class="card" style="border:2px solid var(--brand)"><span class="badge blue">Dashboards</span><h3 style="margin-top:8px">¿De dónde vienen nuestros estudiantes?</h3><p class="small">Tablero con datos agregados y anónimos de procedencia por municipio y comuna, útil para bienestar universitario, movilidad y proyección social.</p></div>
+      <div class="card"><span class="badge blue">Survey123 · ArcGIS Online</span><h3 style="margin-top:8px">¿Cómo llegamos a la U?</h3><p class="small">Encuesta voluntaria y anónima a estudiantes sobre medio de transporte, tiempo de viaje y horarios, convertida en mapas de movilidad para proponer mejoras en rutas y horarios.</p></div>
+      <div class="card"><span class="badge blue">Experience Builder</span><h3 style="margin-top:8px">Campus digital para estudiantes</h3><p class="small">Mapa interactivo de la sede hecho por y para estudiantes: aulas, laboratorios, bienestar, servicios y rutas accesibles, para orientar a quienes llegan por primera vez.</p></div>
+    </div>
+    <p class="small muted" style="margin-top:12px"><b>Segunda fase, hacia la región:</b> con la experiencia ganada, llevar el semillero a proyectos con municipios de Norte de Santander, como un geoportal del área metropolitana, tableros de seguimiento a planes de desarrollo o un mapa del arbolado urbano de Cúcuta para identificar árboles en riesgo de caída por vientos fuertes, un problema frecuente en la ciudad.</p>
+
+    <h3 style="margin-top:28px">Mis próximos pasos</h3>
+    <div class="card">
+      <ul class="check">
+        <li>Activar la licencia académica de ArcGIS a través de la universidad.</li>
+        <li>Completar las primeras lecciones de Learn ArcGIS en español.</li>
+        <li>Inscribirme en el próximo MOOC gratuito de Esri.</li>
+        <li>Presentar este informe al semillero SIGDTI y proponer un primer proyecto SIG para la universidad.</li>
+        <li>Construir mi primera aplicación web con mapas y publicarla en mi portafolio.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ DOCUMENTACIÓN ============================ -->
+<main id="contactos" role="tabpanel" hidden>
+
+<div class="lib-hero">
+  <div class="wrap">
+    <span class="kicker">Red de contactos</span>
+    <h1>Las personas y empresas que conocí</h1>
+    <p>Uno de los objetivos de asistir a la CUE 2026 fue hacer contactos. Esta es la red que construí en el evento: universidad, Esri Colombia, empresas aliadas y conferencistas. Cada contacto se puede guardar en el celular.</p>
+  </div>
+</div>
+
+<section class="block" id="c-red">
+  <div class="wrap">
+    <div class="grid g4" style="margin-bottom:24px">
+      <div class="stat"><div class="n" id="c-n-total">—</div><div class="l">contactos en total</div></div>
+      <div class="stat"><div class="n" id="c-n-personas">—</div><div class="l">personas</div></div>
+      <div class="stat"><div class="n" id="c-n-empresas">—</div><div class="l">organizaciones</div></div>
+      <div class="stat"><div class="n" id="c-n-directos">—</div><div class="l">con teléfono o correo directo</div></div>
+    </div>
+    <div class="ct-tools">
+      <input type="search" id="c-q" placeholder="Buscar persona, empresa, cargo o ciudad…" aria-label="Buscar contactos">
+      <button data-g="todos" aria-pressed="true">Todos</button>
+      <button data-g="universidad" aria-pressed="false">Universidad</button>
+      <button data-g="esri" aria-pressed="false">Esri</button>
+      <button data-g="aliados" aria-pressed="false">Empresas aliadas</button>
+      <button data-g="conferencistas" aria-pressed="false">Conferencistas</button>
+      <button class="primary" id="c-all">Descargar todos (.vcf)</button>
+    </div>
+    <div class="ct-count" id="c-count"></div>
+    <div class="ct-grid" id="c-grid"></div>
+    <!-- fotos y logos recortados de las fotos del evento (preparar_contactos.py); el script los toma de aquí -->
+    <div hidden id="c-imgs">
+      <img data-k="rector" src="img/c-rector.jpg" alt=""><img data-k="sierra" src="img/c-sierra.jpg" alt=""><img data-k="penaranda" src="img/c-penaranda.jpg" alt=""><img data-k="lemos" src="img/c-lemos.jpg" alt=""><img data-k="chivite" src="img/c-chivite.jpg" alt="">
+      <img data-k="martha" src="img/c-martha.jpg" alt=""><img data-k="pedraza" src="img/c-pedraza.jpg" alt=""><img data-k="perez" src="img/c-perez.jpg" alt=""><img data-k="helena" src="img/c-helena.jpg" alt=""><img data-k="natalia" src="img/c-natalia.jpg" alt=""><img data-k="sabrina" src="img/c-sabrina.jpg" alt=""><img data-k="covelli" src="img/c-covelli.jpg" alt="">
+      <img data-k="unilibre" src="img/c-unilibre.jpg" alt=""><img data-k="lulo" src="img/c-lulo.jpg" alt="">
+      <img data-k="esri" src="img/c-esri.jpg" alt=""><img data-k="planeta" src="img/c-planeta.jpg" alt=""><img data-k="dreamgis" src="img/c-dreamgis.jpg" alt=""><img data-k="ecompass" src="img/c-ecompass.jpg" alt="">
+      <img data-k="mpsig" src="img/c-mpsig.jpg" alt=""><img data-k="intelligis" src="img/c-intelligis.jpg" alt=""><img data-k="unigis" src="img/c-unigis.jpg" alt=""><img data-k="here" src="img/c-here.jpg" alt="">
+      <img data-k="planet" src="img/c-planet.jpg" alt=""><img data-k="procalculo" src="img/c-procalculo.jpg" alt=""><img data-k="vantor" src="img/c-vantor.jpg" alt=""><img data-k="synspective" src="img/c-synspective.jpg" alt="">
+    </div>
+    <p class="small muted" style="margin-top:16px">Datos tomados de tarjetas de presentación y folletos entregados en el evento para fines de contacto profesional, del directorio oficial de partners de Esri Colombia y de fuentes públicas. Los datos que no se pudieron leer con certeza se omiten.</p>
+  </div>
+</section>
+
+</main>
+
+<main id="documentacion" role="tabpanel" hidden>
+
+<div class="lib-hero">
+  <div class="wrap">
+    <span class="kicker">Documentación</span>
+    <h1>Cómo se hizo este informe</h1>
+    <p>Metodología, fuentes consultadas, criterios de privacidad, limitaciones y la ficha técnica del sitio.</p>
+    <nav class="lib-nav">
+      <a href="#d-metodo">1. Metodología</a>
+      <a href="#d-fuentes">2. Fuentes</a>
+      <a href="#d-privacidad">3. Privacidad</a>
+      <a href="#d-limites">4. Limitaciones</a>
+      <a href="#d-tecnica">5. Ficha técnica</a>
+    </nav>
+  </div>
+</div>
+
+<!-- 1. Metodología -->
+<section class="block" id="d-metodo">
+  <div class="wrap">
+    <p class="eyebrow">1 · Metodología</p>
+    <h2>Del material del evento a un informe verificado</h2>
+    <div class="grid g2">
+      <div class="card">
+        <ol class="path">
+          <li><b>Recopilación</b><span class="small muted">81 archivos propios: 62 fotografías (folletos, tarjetas, stands, plenaria, delegación) y 19 videos de la plenaria y la feria.</span></li>
+          <li><b>Identificación</b><span class="small muted">Lectura de folletos y diapositivas; ampliación de fotogramas de video para leer nombres, cargos y títulos de charlas.</span></li>
+          <li><b>Verificación</b><span class="small muted">Contraste de cada dato con el sitio oficial de la empresa, el directorio de partners de Esri y prensa especializada. Cuando un dato no se pudo confirmar se indica en "Limitaciones".</span></li>
+          <li><b>Análisis</b><span class="small muted">Clasificación de las empresas por capas del ecosistema (captura, plataforma, integración, territorio, formación) y lectura de cada nicho desde el perfil de Ingeniería en TIC.</span></li>
+          <li><b>Redacción y diseño</b><span class="small muted">Informe, Biblioteca de saberes, Contactos y esta documentación, en un sitio web que funciona sin internet.</span></li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Preguntas que guiaron el trabajo</h3>
+        <ul class="small">
+          <li>¿Qué se presentó en la CUE 2026 y qué tendencias marcan el sector?</li>
+          <li>¿Quiénes son las empresas aliadas de Esri que estuvieron presentes y cuál es su nicho?</li>
+          <li>¿Cuáles son sus servicios principales?</li>
+          <li>¿Qué ventaja tendría un ingeniero en TIC al vincularse con cada una?</li>
+          <li>¿Qué oportunidades abre esto para la Universidad Libre Cúcuta y la región?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Fuentes -->
+<section class="block" id="d-fuentes">
+  <div class="wrap">
+    <p class="eyebrow">2 · Fuentes</p>
+    <h2>Referencias consultadas</h2>
+    <p class="lead">Consultadas entre el 5 y el 6 de octubre de 2026.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Evento e institucionales</h3>
+        <div class="res small">
+          <a href="https://www.esri.co/es-co/cue/inicio" target="_blank" rel="noopener">Esri Colombia — CUE 2026</a><span class="muted">Sitio oficial del evento.</span>
+          <a href="https://www.tecnogus.com.co/cue-colombia-2026-conferencia-usuarios-esri-bogota/" target="_blank" rel="noopener">Tecnogus — CUE Colombia 2026</a><span class="muted">Fechas, lugar, asistentes y ejes temáticos.</span>
+          <a href="https://www.technocio.com/de-los-datos-a-las-decisiones-asi-se-esta-transformando-el-uso-de-la-inteligencia-geoespacial-en-colombia/" target="_blank" rel="noopener">Technocio — De los datos a las decisiones</a><span class="muted">Casos presentados y directivos de Esri Colombia.</span>
+          <a href="https://impactotic.co/tecnologia/la-colaboracion-en-geotecnologia-es-el-motor-del-impacto-de-los-sig/" target="_blank" rel="noopener">ImpactoTIC</a><span class="muted">Cargo de Manuel Francisco Lemos.</span>
+          <a href="https://www.unilibre.edu.co/noticias/universidad-libre-de-cucuta-se-convierte-en-la-primera-de-norte-de-santander-en-incorporar-formacion-en-tecnologia-sig" target="_blank" rel="noopener">Universidad Libre — Convenio con Esri Colombia</a><span class="muted">Convenio de cooperación de cinco años (diciembre de 2025).</span>
+          <a href="https://www.unilibre.edu.co/wp-content/uploads/2025/03/Relacion-de-Semilleros-de-Investigacion-de-la-Universidad-Libre-Seccional-Cucuta-2025.pdf" target="_blank" rel="noopener">Universidad Libre — Semilleros de investigación 2025</a><span class="muted">Semillero SIGDTI.</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Empresas aliadas</h3>
+        <div class="res small">
+          <a href="https://www.esri.co/es-co/nosotros/business-partners/directorio-partners/planeta-oxygen-br" target="_blank" rel="noopener">Planeta Oxygeno — Directorio de partners Esri Colombia</a>
+          <a href="https://multiprocesos.com/" target="_blank" rel="noopener">MPSIG — multiprocesos.com</a>
+          <a href="https://www.intelligisgroup.com" target="_blank" rel="noopener">Intelligis — intelligisgroup.com</a>
+          <a href="https://www.dreamgis.com/" target="_blank" rel="noopener">DreamGIS — dreamgis.com</a>
+          <a href="https://www.synspective.com/news/south_america_partnerships/" target="_blank" rel="noopener">Synspective — alianzas en Sudamérica</a>
+          <a href="https://secure.businesswire.com/news/home/20251001760322/en/Vantor-Rebrands-from-Maxar-Intelligence-Unveils-AI-Powered-Platform" target="_blank" rel="noopener">Vantor — cambio de marca (Business Wire)</a>
+          <a href="https://www.here.com/about/press-releases/here-technologies-launches-gis-data-suite-a-new-standard-in-foundational-gis" target="_blank" rel="noopener">HERE — GIS Data Suite</a>
+          <a href="https://www.ecompass.co" target="_blank" rel="noopener">eCompass — ecompass.co</a>
+          <a href="https://earth.esa.int/eogateway/missions/planetscope" target="_blank" rel="noopener">Planet — misión PlanetScope (ESA)</a>
+          <a href="https://www.businesswire.com/news/home/20250717149785/en" target="_blank" rel="noopener">Procalculo — contrato IGAC con Planet (Business Wire)</a>
+          <a href="https://unigisamericalatina.net/" target="_blank" rel="noopener">UNIGIS América Latina — unigisamericalatina.net</a>
+          <a href="https://www.andi.com.co/Home/Noticia/15620-ecocomputo-un-referente-en-recoleccion" target="_blank" rel="noopener">EcoCómputo — ANDI</a>
+        </div>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:12px">Los recursos de aprendizaje (Esri Academy, Learn ArcGIS, ArcGIS Developers, IGAC, DANE, ICDE, datos.gov.co) están enlazados en la Biblioteca de saberes.</p>
+  </div>
+</section>
+
+<!-- 3. Privacidad -->
+<section class="block" id="d-privacidad">
+  <div class="wrap">
+    <p class="eyebrow">3 · Privacidad</p>
+    <h2>Criterios aplicados</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Datos de contacto</h3><p class="small">La pestaña Contactos publica los datos de tarjetas y folletos que se entregaron en el evento para fines de contacto profesional. Los datos que no se pudieron leer con certeza se omiten.</p></div>
+      <div class="card"><h3>Estudiantes</h3><p class="small">Los compañeros de la delegación aparecen en fotografías grupales, pero no se mencionan sus nombres.</p></div>
+      <div class="card"><h3>Personas públicas</h3><p class="small">Se nombran directivos y conferencistas con el cargo con el que se presentaron públicamente en el evento o en fuentes oficiales.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Limitaciones -->
+<section class="block" id="d-limites">
+  <div class="wrap">
+    <p class="eyebrow">4 · Limitaciones</p>
+    <h2>Lo que no se pudo verificar del todo</h2>
+    <details class="faq"><summary>Nivel de MPSIG en el Esri Partner Network</summary><p>El folleto y el sitio de la empresa indican nivel Gold; el perfil en esri.com aún muestra Silver. Se usa el dato más reciente (Gold).</p></details>
+    <details class="faq"><summary>Gerentes de sector de Esri Colombia</summary><p>Sus nombres y cargos se leyeron de la diapositiva proyectada en la plenaria y no aparecen en fuentes web públicas. Por eso no se mencionan en los textos del informe ni en la pestaña Contactos; solo se ven en el video "Equipo de Esri Colombia", tal como se proyectaron en el evento.</p></details>
+    <details class="faq"><summary>Presencia de Vantor y Synspective</summary><p>Hay material impreso de ambas empresas, pero no se confirmó si tenían stand propio o si estaban con su distribuidor en Colombia (DreamGIS).</p></details>
+    <details class="faq"><summary>Datos de Planeta Oxygeno</summary><p>La empresa no tiene un sitio web propio activo; la información proviene del directorio oficial de partners de Esri Colombia, de la noticia de la Universidad Libre y de las fotografías del stand.</p></details>
+    <details class="faq"><summary>Contenido de las charlas</summary><p>Los temas de la plenaria se reconstruyen a partir de fotos y videos cortos tomados desde el público; no son transcripciones completas.</p></details>
+  </div>
+</section>
+
+<!-- 5. Ficha técnica -->
+<section class="block" id="d-tecnica">
+  <div class="wrap">
+    <p class="eyebrow">5 · Ficha técnica</p>
+    <h2>Cómo está construido este sitio</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Características</h3>
+        <ul class="small">
+          <li>Un archivo HTML con estilos, código e imágenes incluidos, más la carpeta <code>videos/</code> (19 videos, ~140 MB) a su lado: <b>funciona sin internet</b> y se puede copiar en una USB.</li><li>Los videos no se incrustan para que la página siga siendo liviana; solo se cargan cuando se presiona reproducir.</li>
+          <li>Sin librerías externas: HTML, CSS y JavaScript estándar.</li>
+          <li>Diseño adaptable a celular, modo claro/oscuro y versión para imprimir.</li>
+          <li>Imágenes optimizadas a máximo 1.400 px; las selfies se corrigieron en espejo para que el texto se lea bien.</li>
+          <li>Los archivos originales del evento no se modifican.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Cómo actualizarlo</h3>
+        <ol class="small">
+          <li>Editar el contenido en <code>sitio/index.src.html</code>.</li>
+          <li>Si cambian las fotos, ajustar la lista en <code>sitio/herramientas/preparar_imagenes.py</code> y ejecutarlo.</li>
+          <li>Si cambian los videos, ajustar la lista en <code>sitio/herramientas/preparar_videos.py</code> y ejecutarlo.</li><li>Ejecutar <code>sitio/herramientas/construir.py</code> para generar <code>sitio/index.html</code>.</li>
+        </ol>
+        <p class="small muted">Requiere Python con OpenCV. Más detalles en el archivo <code>LEEME.md</code> del proyecto.</p>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:16px">Versión 1.0 · Octubre de 2026 · Elaborado por Dani Ismael Rodríguez Gómez, Ingeniería en TIC, Universidad Libre Seccional Cúcuta.</p>
+  </div>
+</section>
+
+</main>
+
+<dialog id="visor"><button aria-label="Cerrar">×</button><img alt=""><p></p></dialog>
+
+<script>
+(function(){
+  // pestañas (recuerda la última vista en la URL)
+  const tabs = document.querySelectorAll('[data-tab]');
+  function show(id){
+    if(!document.getElementById(id)) id = 'informe';
+    tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.tab === id));
+    document.querySelectorAll('main[role=tabpanel]').forEach(m => m.hidden = m.id !== id);
+  }
+  tabs.forEach(t => t.addEventListener('click', () => { history.replaceState(null,'','#'+t.dataset.tab); show(t.dataset.tab); window.scrollTo(0,0); }));
+  // enlaces internos que cambian de pestaña
+  document.querySelectorAll('[data-ir]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault(); history.replaceState(null,'','#'+a.dataset.ir); show(a.dataset.ir); window.scrollTo(0,0);
+  }));
+
+  // al cargar: abre la pestaña que contiene el ancla de la URL (p. ej. #b-glosario)
+  const h = location.hash.slice(1);
+  const destino = h && document.getElementById(h);
+  const panel = destino && destino.closest('main[role=tabpanel]');
+  show(panel ? panel.id : 'informe');
+  if (destino && destino !== panel) destino.scrollIntoView();
+
+  // buscador del glosario
+  const gq = document.getElementById('g-q');
+  if (gq) gq.addEventListener('input', () => {
+    const q = gq.value.trim().toLowerCase();
+    let n = 0;
+    document.querySelectorAll('#glosario .term').forEach(t => {
+      const ok = !q || t.textContent.toLowerCase().includes(q);
+      t.hidden = !ok; if (ok) n++;
+    });
+    document.getElementById('g-none').hidden = n > 0;
+  });
+
+  // red de contactos (g: universidad | esri | aliados | conferencistas · tipo: persona | empresa)
+  const CONTACTOS = [
+    {g:"universidad", tipo:"persona", org:"Universidad Libre Seccional Cúcuta", nombre:"Dr. Diego Armando Yáñez Meza", cargo:"Rector", tel:[], email:[], web:"https://www.unilibrecucuta.edu.co", ciudad:"Cúcuta", nota:"Lideró el convenio Unilibre–Esri (diciembre de 2025) y acompañó a la delegación en la CUE 2026."},
+    {g:"universidad", tipo:"persona", org:"Universidad Libre Seccional Cúcuta", nombre:"Profesor Ing. Francisco Sierra", cargo:"Profesor", tel:[], email:[], web:"", ciudad:"Cúcuta", nota:"Acompañó a la delegación en la CUE 2026."},
+    {g:"universidad", tipo:"persona", org:"Universidad Libre Seccional Cúcuta", nombre:"Prof. Johan Gustavo Peñaranda Méndez", cargo:"Director del semillero de investigación SIGDTI", tel:[], email:[], web:"", ciudad:"Cúcuta", nota:"Acompañó a los estudiantes en la CUE 2026."},
+    {g:"aliados", tipo:"persona", org:"Planeta Oxygeno S.A.S.", nombre:"Martha Lucía Arias", cargo:"Gerente y Representante Legal", tel:["+57 318 356 3601"], email:["marthaarias@planetaoxygeno.com"], web:"https://www.esri.co/es-co/nosotros/business-partners/directorio-partners/planeta-oxygen-br", ciudad:"Cúcuta", dir:"Av. 1 No. 12-33, Of. 402, Edificio Franquez, Barrio Caobos", nota:"Empresa SIG norte-santandereana, Esri Partner Network. Asesoría a entes territoriales con enfoque ODS."},
+    {g:"esri", tipo:"persona", org:"Esri Colombia y Ecuador", nombre:"Manuel Francisco Lemos", cargo:"Gerente General", tel:[], email:[], web:"https://co.linkedin.com/in/mflemos", ciudad:"Bogotá", nota:"Charla de plenaria «¿Qué es la inteligencia?»."},
+    {g:"esri", tipo:"persona", org:"Esri Colombia", nombre:"Helena Gutiérrez", cargo:"Presidenta", tel:[], email:[], web:"https://www.esri.co", ciudad:"Bogotá", nota:""},
+    {g:"esri", tipo:"persona", org:"Esri Colombia y Ecuador", nombre:"Natalia Villamizar", cargo:"Directora de Comunidad", tel:[], email:[], web:"https://www.esri.co", ciudad:"Bogotá", nota:"Alianzas universidad–gobierno–empresa; convenio con la Unilibre Cúcuta."},
+    {g:"esri", tipo:"persona", org:"Esri Colombia y Ecuador", nombre:"Sabrina González", cargo:"Gerente de Educación", tel:[], email:[], web:"https://www.esri.co", ciudad:"Bogotá", nota:"Programas educativos y licencias académicas del convenio."},
+    {g:"esri", tipo:"empresa", org:"Esri Colombia", nombre:"", cargo:"Canal institucional", tel:[], email:[], web:"https://www.esri.co", ciudad:"Bogotá", nota:"Redes sociales: @EsriColombia."},
+    {g:"aliados", tipo:"persona", org:"DreamGIS", nombre:"Carlos Pedraza", cargo:"Director Científico", tel:["+57 313 348 5726"], email:["carlos@dreamgis.com"], web:"https://www.dreamgis.com", ciudad:"Bogotá", nota:"SIG corporativo; distribuidor de Vantor y Synspective en Colombia."},
+    {g:"aliados", tipo:"empresa", org:"DreamGIS", nombre:"", cargo:"Línea de la empresa", tel:["+57 320 244 6234","+57 319 519 8213 (WhatsApp)"], email:[], web:"https://www.dreamgis.com", ciudad:"Bogotá", dir:"Carrera 7 No. 52-44, Of. 905, Ed. Iwoka", nota:""},
+    {g:"aliados", tipo:"persona", org:"eCompass", nombre:"Pedro Fabián Pérez Arteaga", cargo:"Co-founder & CBDO", tel:["+57 311 250 6679"], email:["pedro.perez@ecompass.co"], web:"https://www.ecompass.co", ciudad:"Bogotá", nota:"Drones profesionales y LiDAR. Redes: @eCompass_oficial."},
+    {g:"aliados", tipo:"empresa", org:"MPSIG — MultiProcesos SIG", nombre:"", cargo:"Contacto comercial", tel:["+57 317 401 2282"], email:["info@mpsig.com"], web:"https://multiprocesos.com/", ciudad:"Bucaramanga · Bogotá · Cali", nota:"Esri Gold Partner. Utility Network."},
+    {g:"aliados", tipo:"empresa", org:"Intelligis Technologies", nombre:"", cargo:"Contacto comercial", tel:[], email:["info@intelligisgroup.com"], web:"https://www.intelligisgroup.com", ciudad:"Panamá", nota:"Delego, IntelliFleet y SmartMaps. Redes: @intelligisgroup."},
+    {g:"aliados", tipo:"empresa", org:"UNIGIS América Latina", nombre:"", cargo:"Oficina de admisiones", tel:["+57 315 540 9792 (WhatsApp)","+57 316 053 3152 (WhatsApp)"], email:["office.americalatina@unigis.net"], web:"https://unigisamericalatina.net/", ciudad:"Virtual", nota:"Especialización y maestría en SIG (Universidad de Salzburgo)."},
+    {g:"aliados", tipo:"empresa", org:"Geodatamaps (HERE Technologies)", nombre:"", cargo:"Distribuidor autorizado de HERE", tel:[], email:["info@geodatamaps.com"], web:"https://geodatamaps.com", ciudad:"Bogotá", dir:"Calle 85 No. 24-73", nota:"HERE GIS Data Suite."},
+    {g:"aliados", tipo:"empresa", org:"Planet", nombre:"", cargo:"Imágenes satelitales diarias", tel:[], email:[], web:"https://www.planet.com", ciudad:"", nota:"En Colombia, a través de Procalculo."},
+    {g:"aliados", tipo:"empresa", org:"Procalculo", nombre:"", cargo:"Revendedor autorizado de Planet en Colombia", tel:[], email:[], web:"", ciudad:"Bogotá", nota:"Stand compartido con Planet en la CUE 2026."},
+    {g:"aliados", tipo:"empresa", org:"Vantor (antes Maxar)", nombre:"", cargo:"Imágenes satelitales de alta resolución", tel:[], email:[], web:"https://vantor.com", ciudad:"", nota:"En Colombia, a través de DreamGIS."},
+    {g:"aliados", tipo:"empresa", org:"Synspective", nombre:"", cargo:"Satélites de radar StriX", tel:[], email:[], web:"https://www.synspective.com", ciudad:"", nota:"En Colombia, a través de DreamGIS."},
+    {g:"conferencistas", tipo:"persona", org:"Esri Inc.", nombre:"Ismael Chivite", cargo:"Geospatial AI Product Manager", tel:[], email:[], web:"", ciudad:"", nota:"Demostración de IA en ArcGIS con resultados Saber 11."},
+    {g:"conferencistas", tipo:"persona", org:"Lulo Bank", nombre:"Santiago Covelli", cargo:"Cofundador", tel:[], email:[], web:"https://esri.covelli.ai/", ciudad:"", nota:"Charla sobre IA y aprendizaje."}
+  ];
+  const cGrid = document.getElementById('c-grid');
+  if (cGrid) {
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+    const titulo = c => c.nombre || c.org;
+    let grupo = 'todos';
+    const set = (id, v) => document.getElementById(id).textContent = v;
+    set('c-n-total', CONTACTOS.length);
+    set('c-n-personas', CONTACTOS.filter(c => c.tipo === 'persona').length);
+    // "Esri Colombia" y "Esri Colombia y Ecuador" son la misma organización
+    const orgBase = o => o.split(' (')[0].replace(/^Esri Colombia y Ecuador$/, 'Esri Colombia');
+    set('c-n-empresas', new Set(CONTACTOS.map(c => orgBase(c.org))).size);
+    set('c-n-directos', CONTACTOS.filter(c => c.tel.length || c.email.length).length);
+
+    // fotos de personas y logos de organizaciones
+    const IMG = {};
+    document.querySelectorAll('#c-imgs img').forEach(i => IMG[i.dataset.k] = i.src);
+    const FOTO = {"Dr. Diego Armando Yáñez Meza":"rector", "Profesor Ing. Francisco Sierra":"sierra", "Prof. Johan Gustavo Peñaranda Méndez":"penaranda", "Manuel Francisco Lemos":"lemos", "Ismael Chivite":"chivite",
+      "Martha Lucía Arias":"martha", "Carlos Pedraza":"pedraza", "Pedro Fabián Pérez Arteaga":"perez", "Helena Gutiérrez":"helena", "Natalia Villamizar":"natalia", "Sabrina González":"sabrina", "Santiago Covelli":"covelli"};
+    const LOGO = [[/^Universidad Libre/,"unilibre"],[/^Lulo Bank/,"lulo"],[/^Esri Colombia/,"esri"],[/^Planeta Oxygeno/,"planeta"],[/^DreamGIS/,"dreamgis"],[/^eCompass/,"ecompass"],[/^MPSIG/,"mpsig"],[/^Intelligis/,"intelligis"],[/^UNIGIS/,"unigis"],[/^Geodatamaps/,"here"],[/^Planet$/,"planet"],[/^Procalculo/,"procalculo"],[/^Vantor/,"vantor"],[/^Synspective/,"synspective"]];
+    const logoDe = c => { const m = LOGO.find(([r]) => r.test(c.org)); return m ? IMG[m[1]] : ''; };
+    const iniciales = n => n.replace(/^(Dr\.|Prof\.|Profesor|Ing\.)\s+/g,'').replace(/^(Ing\.)\s+/,'').split(/\s+/).filter(Boolean).slice(0,2).map(p => p[0]).join('').toUpperCase();
+
+    const vcard = c => {
+      const l = ["BEGIN:VCARD","VERSION:3.0","FN:"+titulo(c),"ORG:"+c.org];
+      if (c.cargo) l.push("TITLE:"+c.cargo);
+      c.tel.forEach(t => l.push("TEL;TYPE=WORK:"+t.replace(/\s*\(.*\)/,"")));
+      c.email.forEach(e => l.push("EMAIL:"+e));
+      if (c.web) l.push("URL:"+c.web);
+      if (c.dir || c.ciudad) l.push("ADR:;;"+(c.dir||"")+";"+(c.ciudad||"")+";;;Colombia");
+      l.push("NOTE:Contacto de la CUE Esri Colombia 2026. "+(c.nota||""), "END:VCARD");
+      return l.join("\r\n");
+    };
+    const bajar = (nombre, texto) => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([texto], {type:'text/vcard'}));
+      a.download = nombre; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    };
+    const render = () => {
+      const q = document.getElementById('c-q').value.trim().toLowerCase();
+      const lista = CONTACTOS.filter(c => (grupo === 'todos' || c.g === grupo) && (!q || JSON.stringify(c).toLowerCase().includes(q)));
+      set('c-count', lista.length + ' de ' + CONTACTOS.length + ' contactos');
+      cGrid.innerHTML = lista.map(c => {
+        const row = (k, v) => v ? `<dt>${k}</dt><dd>${v}</dd>` : '';
+        const logo = logoDe(c), foto = IMG[FOTO[c.nombre]];
+        const cabeza = c.nombre
+          ? `<div class="hd">${logo ? `<img src="${logo}" alt="Logo de ${esc(c.org)}">` : ''}<span class="org">${esc(c.org)}</span></div>
+             <div class="who">${foto ? `<img class="av" src="${foto}" alt="${esc(c.nombre)}">` : `<span class="av" aria-hidden="true">${esc(iniciales(c.nombre))}</span>`}
+               <div><p class="nm">${esc(c.nombre)}</p><p class="rl">${esc(c.cargo)}</p></div></div>`
+          : `${logo ? `<div class="logo big"><img src="${logo}" alt="Logo de ${esc(c.org)}"></div>` : ''}
+             <span class="org">${esc(c.org)}</span><p class="rl">${esc(c.cargo)}</p>`;
+        return `<article class="ct">
+          ${cabeza}
+          <dl>
+            ${row('Tel.', c.tel.map(t => `<a href="tel:${t.replace(/\s*\(.*\)/,'').replace(/[^\d+]/g,'')}">${esc(t)}</a>`).join('<br>'))}
+            ${row('Correo', c.email.map(e => `<a href="mailto:${esc(e)}">${esc(e)}</a>`).join('<br>'))}
+            ${row('Web', c.web ? `<a href="${esc(c.web)}" target="_blank" rel="noopener">${esc(c.web.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,'').slice(0,40))}</a>` : '')}
+            ${row('Ciudad', esc(c.ciudad || ''))}
+            ${row('Dirección', esc(c.dir || ''))}
+          </dl>
+          ${c.nota ? `<div class="nt">${esc(c.nota)}</div>` : ''}
+          <button data-i="${CONTACTOS.indexOf(c)}">Guardar en el celular (.vcf)</button>
+        </article>`;
+      }).join('');
+    };
+    document.getElementById('c-q').addEventListener('input', render);
+    document.querySelectorAll('.ct-tools [data-g]').forEach(b => b.addEventListener('click', () => {
+      grupo = b.dataset.g;
+      document.querySelectorAll('.ct-tools [data-g]').forEach(x => x.setAttribute('aria-pressed', x === b));
+      render();
+    }));
+    cGrid.addEventListener('click', e => {
+      const i = e.target.dataset.i; if (i === undefined) return;
+      const c = CONTACTOS[i];
+      bajar(titulo(c).replace(/[^\wÀ-ÿ .-]/g,'') + '.vcf', vcard(c));
+    });
+    document.getElementById('c-all').addEventListener('click', () => bajar('contactos-CUE-Esri-2026.vcf', CONTACTOS.map(vcard).join("\r\n")));
+    render();
+  }
+
+  // videos: si la carpeta videos/ no está junto al index.html, se muestra un aviso
+  document.querySelectorAll('#videos video').forEach(v => {
+    v.addEventListener('error', () => document.getElementById('v-aviso').classList.add('on'));
+    v.addEventListener('play', () => document.querySelectorAll('#videos video').forEach(o => { if (o !== v) o.pause(); }));
+  });
+  const prueba = document.createElement('video');
+  prueba.preload = 'metadata'; prueba.muted = true;
+  prueba.onerror = () => document.getElementById('v-aviso').classList.add('on');
+  prueba.src = 'videos/04-auditorio-lleno.mp4';
+
+  // tema claro/oscuro
+  const root = document.documentElement;
+  try { const s = localStorage.getItem('tema'); if (s) root.dataset.theme = s; } catch(e){}
+  document.getElementById('theme').addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('tema', root.dataset.theme); } catch(e){}
+  });
+
+  // visor de imágenes
+  const visor = document.getElementById('visor');
+  document.addEventListener('click', e => {
+    const img = e.target.closest('figure img, .partner .thumb img, .featured > img, .topic img, .gallery img');
+    if(!img) return;
+    visor.querySelector('img').src = img.src;
+    const cap = img.closest('figure')?.querySelector('figcaption');
+    visor.querySelector('p').textContent = cap ? cap.textContent : img.alt;
+    visor.showModal();
+  });
+  visor.addEventListener('click', e => { if (e.target === visor || e.target.tagName === 'BUTTON') visor.close(); });
+})();
+</script>
+</body>
+</html>
