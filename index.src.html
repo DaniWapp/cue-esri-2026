@@ -1238,7 +1238,7 @@ details.faq p{margin:8px 0 0;color:var(--muted)}
           <dl>
             ${row('Tel.', c.tel.map(t => `<a href="tel:${t.replace(/\s*\(.*\)/,'').replace(/[^\d+]/g,'')}">${esc(t)}</a>`).join('<br>'))}
             ${row('Correo', c.email.map(e => `<a href="mailto:${esc(e)}">${esc(e)}</a>`).join('<br>'))}
-            ${row('Web', c.web ? `<a href="${esc(c.web)}" target="_blank" rel="noopener">${esc(c.web.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,'').slice(0,40))}</a>` : '')}
+            ${row('Web', c.web ? `<a href="${esc(c.web)}" target="_blank" rel="noopener">${esc(decodeURI(c.web).replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,'').slice(0,40))}</a>` : '')}
             ${row('Ciudad', esc(c.ciudad || ''))}
             ${row('Dirección', esc(c.dir || ''))}
           </dl>
